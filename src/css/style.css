@@ -1,0 +1,47 @@
+.white {
+  margin: 0px auto;
+  width: 1225px;
+  height: 3450px;
+  background-color: #ffffff; }
+
+.left-container {
+  float: left;
+  width: 275px;
+  height: 3450px;
+  background-color: #353541; }
+
+.top-layer {
+  width: 950px;
+  height: 437px;
+  background-color: #353541;
+  position: relative;
+  float: left; }
+
+.logo {
+  width: 275px;
+  height: 221px;
+  position: relative;
+  z-index: 99;
+  background-color: red;
+  padding-top: 0px;
+  margin-top: 0px; }
+
+.header {
+  width: 624px;
+  height: 207px;
+  float: left;
+  margin-top: 115px;
+  margin-left: 123px;
+  background-color: red; }
+
+.menu a {
+  display: block;
+  text-decoration: none;
+  padding-left: 35px;
+  margin-top: 4px;
+  background-color: blue;
+  color: #ffffff;
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 62px; }

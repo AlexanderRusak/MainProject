@@ -17,10 +17,10 @@
         
 	         
            map.addListener("click", function (e) {
-
+             map:null;
              cirle=new google.maps.Circle({
              map:map,
-             radius:2000,
+             radius:1000,
              fillColor:"green",
              center:e.latLng
       
