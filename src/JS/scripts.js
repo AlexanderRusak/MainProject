@@ -1,7 +1,16 @@
-	$(function(){
+	$("document").ready(function(){
 
-		$('.menu').click(function(){
-	    $(".top-layer").css("background-color","green");
+		$(".menu a:nth-child(1)").click(function(){
+			$(".SignIn").css("display","inline-block");
+
+		});
+	
+		$(".menu a p a").click(function(){
+			$(".SignIn").css("display","none");
+
+		});
 	});
-	})
+		
+	
+	
 	
