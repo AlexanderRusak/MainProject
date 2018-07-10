@@ -24,8 +24,8 @@ float:left;
 width: 275px;
 height: 221px;
 position: relative;
+background-size: 100%;
 z-index: 99;
-background-color: #131321;
 padding-top: 0px;
 margin-top: 0px;
 }
@@ -54,28 +54,25 @@ margin-top: 0px;
  font-size: 24px;
 }
 .SignIn{
-  display:none;
-  padding-top:5px;
-  padding-left: 10px;
-  width: 300px;
-  height: 150px;
-  margin-top:25px;
-  margin-left: 30px;
-  background-color:$color;
-  color: #fff;
-  font-family: Raleway;
-  font-weight:500;
-  line-height: 50px;
-  font-size: 16px;
+  width: 400px;
+  display: none;
+  margin-left: 120px;
+  background-color: blue;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 62px;
 }
-.SignIn input{
-  display: inline-block;
-  float: right;
-  margin-top: 12px;
-  margin-right: 20px;
-  border: 2px #fff solid;
-  border-radius: 5px;
+.SignIn div{
+  width: 400px;
+
 }
+.SingIn div input{
+  display: block;
+ float:right;
+ padding-right: 0px;
+}
+
+
 .reg{
   top: 500px;
   width: 950px;
@@ -84,14 +81,7 @@ margin-top: 0px;
   float: left;
   margin:0px auto;
 }
-.test{
-  top: 500px;
-  width: 950px;
-  height: 500px;
-  background-color: red;
-  float: left;
-  margin:0px auto;
-}
+
 
 
 

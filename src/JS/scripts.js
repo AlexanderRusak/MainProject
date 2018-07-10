@@ -5,7 +5,7 @@
 
 		});
 	
-		$(".menu a p a").click(function(){
+		$(".menu a:nth-child(2) ").click(function(){
 			$(".SignIn").css("display","none");
 
 		});
