@@ -12,14 +12,16 @@
 <body>
 	  		`<div class="white">
 	  			<div class="left-container">
+	  				<div class="fixed-menu">
 	  				<div class="logo">
-	  					<img width="275" height="225" src="image/logo.png">
+	  					<a href="#"><img width="275" height="225" src="image/logo.png"></a>
 	  				</div>
 	  				<nav  class="menu">
 	  					<a href="#SignIn">SignIn</a>
 	  					<a href="#reg">Registration</a>
 	  					<a href="#">Contacts</a>
 	  				</nav>
+	  				</div>
 	  			</div>
 	  			<div class="top-layer">
 	  				<div class="header">
@@ -29,8 +31,14 @@
 	  			</div>
 					<div class="reg">
 	  					<div class="SignIn">
-							<div><label>UserName</label><input  type="text" name=""></div>
-							<div><label>PassWord</label><input type="password" name=""></div>
+							<div>
+								<label>UserName</label>
+								<input id="username" type="text" placeholder="Enter username" name="">
+							</div>
+							<div>
+								<label>PassWord</label>
+								<input id="password" type="password" name="">
+							</div>
 							<input type="submit" name="sss">
 	  					</div>
 	  				</div>
