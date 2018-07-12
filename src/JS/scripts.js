@@ -16,14 +16,25 @@
 				nextImage.fadeIn(1000);
 				nextImage.addClass("curry");
 			}
-		});		
+			});	
+			$(".prev").click(function(){
+			var currentImage=$(".img.curry");
+			var currentImageIndex=$(".img.curry").index();
+			var prevImageIndex=currentImageIndex-1;
+			var prevImage=$(".img").eq(prevImageIndex);
+
+			currentImage.hide();
+			currentImage.removeClass("curry");
+			prevImage.fadeIn(1000);
+			prevImage.addClass("curry");	
+			});// code for slider
 
 
 
 
 		$(".menu a:nth-child(1)").click(function(){
 			$(".SignIn").css("display","inline-block");
-			$(".SignIn inputяи").focus();
+			$(".SignIn input").focus();
 		});
 	
 		$(".menu a:nth-child(2) ").click(function(){
@@ -39,6 +50,10 @@
 				}
 				
 		});
+		$(".btn-onslider").click(function(){
+			$(".SignIn").css("display","inline-block");
+			$(".SignIn input").focus();
+		})
 	});
 		
 	
