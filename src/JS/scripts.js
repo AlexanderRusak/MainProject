@@ -26,6 +26,23 @@
 			$(".SignIn").css("display","inline-block");
 			$(".SignIn input").focus();
 		})
+
+		$(".nav ul li:nth-child(2)").click(function(){
+			$(".linenavcolor div").css("display","none");
+			$(".linenavcolor2").css("display","block");
+		});
+		$(".nav ul li:nth-child(1)").click(function(){
+			$(".linenavcolor div").css("display","none");
+			$(".linenavcolor1").css("display","block");
+		});
+		$(".nav ul li:nth-child(3)").click(function(){
+			$(".linenavcolor div").css("display","none");
+			$(".linenavcolor3").css("display","block");
+		});
+		$(".nav ul li:nth-child(4)").click(function(){
+			$(".linenavcolor div").css("display","none");
+			$(".linenavcolor4").css("display","block");
+		});
 	});
 		
 	
