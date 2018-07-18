@@ -355,8 +355,7 @@ color:#fb6470;
 .leave_msg{
   width: 265px;
   height: 306px;
-  float: left;
-  
+  float: left; 
 }
 .leave_msg:nth-child(1){
   width: 270px;
@@ -445,13 +444,40 @@ color:#fb6470;
  
   background-color: #fb6470;
 }
-.about div:nth-child(2){
-  margin-top: 30px;
+.line{
+  margin-top: 31px;
   width: 1px;
-  height: 253px;
+  height: 250px;
   background-color: #000000;
   opacity: 0.2;
   float: left;
   margin-left: 75px;
+}
+.location{
+  width: 336px;
+  height: 306px;
+  float: right;
+  background-color: red; 
+}
+.location :nth-child(1){
+  margin-top: 15px;
+  width: 335px;
+  height: 53px;
+   background-image: url("image/home.png") no-repeat;
+  float: left;
+}
+.location :nth-child(2){
+  width: 335px;
+  height: 53px;
+  background-color: green;
+  float: left;
+  margin-top: 60px;
+}
+.location :nth-child(3){
+  width: 335px;
+  height: 53px;
+  float: left;
+  margin-top: 60px;
+  background-image: url("image/home.png") no-repeat;
 }
 
