@@ -6,7 +6,7 @@
   background-color: #ffffff;
 }
 .fixed-menu{
-  position: fixed;
+  
 }
 .left-container{
   float: left;
@@ -347,14 +347,19 @@ color:#fb6470;
   margin-top: 25px;
   opacity: 0.8;
 }
+.about{
+  width: 733px;
+  height: 306px;
+  margin-top:80px;
+}
 .leave_msg{
   width: 265px;
   height: 306px;
   float: left;
-  margin-top: 80px;
+  
 }
 .leave_msg:nth-child(1){
-  width: 177px;
+  width: 270px;
   height: 21px;
   color: #3e3e3e;
   font-family: "Raleway", sans-serif;
@@ -362,31 +367,91 @@ color:#fb6470;
   font-weight: 500;
   line-height: 50px;
 }
-.leave_msg_form input {
-padding-left:15px;
-display: inline-block;
-width: 265px;
-height: 35px;
-color: #3e3e3e;
-font-size: 14px;
-font-weight: 400;
-line-height: 50px;
-margin-bottom: 15px;
+.leave_msg_form input:nth-child(1){
+  padding-left: 15px;
+  display: inline-block;
+  width: 250px;
+  height: 35px;
+  color: #3e3e3e;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 50px;
+
 }
-.leave_msg_form :nth-child(3) {
-margin-top: 15px;
-padding-left:15px;
-width: 265px;
-color: #3e3e3e;
-font-size: 14px;
-font-weight: 400;
-line-height: 50px;
-height: 95px;
+.leave_msg_form input:nth-child(1)::placeholder{
+  opacity: 0.8;
+  color: #3e3e3e;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 50px;
 }
-.leave_msg_form input {
-opacity: 0.8;
-color: #3e3e3e;
-font-family: "Raleway Medium-Italic",sans-serif;
-font-size: 14px;
-  }
+.leave_msg_form input:nth-child(2){
+  padding-left: 15px;
+  display: inline-block;
+  margin-top: 15px;
+  width: 250px;
+  height: 35px;
+   color: #3e3e3e;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 50px;
+}
+.leave_msg_form input:nth-child(2)::placeholder{
+  opacity: 0.8;
+  color: #3e3e3e;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 50px;
+}
+.leave_msg_form textarea:nth-child(3){
+  text-align: top;
+  margin-top: 15px;
+  padding-left: 15px;
+  display: inline-block;
+  width: 250px;
+  height: 95px;
+  color: #3e3e3e;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 50px;
+}
+.leave_msg_form textarea:nth-child(3)::placeholder{
+  opacity: 0.8;
+  color: #3e3e3e;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 50px;
+}
+.btn_leave_msg {
+  width: 95px;
+  height: 35px;
+  float: right; 
+  font-size: 14px;
+  text-align: center;
+  background-color:#fff; 
+  display: inline-block;
+  font-family:'Raleway-MediumItalic',sans-serif;
+  background-color:#353541;
+  border:none;
+  color: #fff;
+}
+.btn_leave_msg:hover {
+ 
+  background-color: #fb6470;
+}
+.about div:nth-child(2){
+  margin-top: 30px;
+  width: 1px;
+  height: 253px;
+  background-color: #000000;
+  opacity: 0.2;
+  float: left;
+  margin-left: 75px;
+}
 

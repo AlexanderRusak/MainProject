@@ -117,11 +117,11 @@
 					<div class="about">
 						<div class="leave_msg">
 							<div>Leave a Message</div>
-							<form class="leave_msg_form">
+							<form id="msg_form" class="leave_msg_form">
 								<input type="text" name="" placeholder="Name*">
 								<input type="text" name="" placeholder="Email*">
-								<input type="text" name="">
-								<div><input type="submit" name=""></div>
+								<textarea required form="msg_form" placeholder="Message*"></textarea> 
+								<input class="btn_leave_msg" type="submit" name="" value="Send">
 							</form>
 						</div>
 						<div></div>
