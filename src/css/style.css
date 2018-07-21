@@ -510,26 +510,64 @@
 .location {
   width: 336px;
   height: 306px;
-  float: right;
-  background-color: red; }
+  float: right; }
 
-.location :nth-child(1) {
-  margin-top: 15px;
-  width: 335px;
-  height: 53px;
-  background-image: url("image/home.png") no-repeat;
-  float: left; }
+.location ul li {
+  display: block; }
 
-.location :nth-child(2) {
+.location ul li {
   width: 335px;
-  height: 53px;
-  background-color: green;
-  float: left;
+  height: 43px;
+  margin-top: 30px;
+  list-style: none;
+  margin-left: -39px; }
+
+.location ul li:nth-child(2) {
   margin-top: 60px; }
 
-.location :nth-child(3) {
-  width: 335px;
+.location ul li:nth-child(3) {
+  margin-top: 60px; }
+
+.location_img_1 {
+  width: 32px;
+  height: 32px;
+  background-image: url("../image/home.png");
+  position: relative;
+  top: 6px; }
+
+.location_img_2 {
+  background-image: url("../image/mail.png");
+  width: 32px;
+  height: 32px;
+  position: relative;
+  top: 6px; }
+
+.location_img_3 {
+  background-image: url("../image/phone.png");
+  width: 32px;
+  height: 32px;
+  position: relative;
+  top: 6px; }
+
+.location_text {
+  position: relative;
+  top: -36px;
+  float: right;
   height: 53px;
-  float: left;
-  margin-top: 60px;
-  background-image: url("image/home.png") no-repeat; }
+  width: 258px; }
+
+.location_text div:nth-child(1) {
+  width: 109px;
+  height: 15px;
+  color: #3e3e3e;
+  font-family: "Raleway",sans-serif;
+  font-size: 18px; }
+
+.location_text div:nth-child(2) {
+  margin-top: 23px;
+  width: 258px;
+  height: 14px;
+  opacity: 0.8;
+  color: #3e3e3e;
+  font-family: "Raleway",sans-serif;
+  font-size: 14px; }

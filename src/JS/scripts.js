@@ -1,4 +1,4 @@
-	$("document").ready(function(){
+	$("document").ready(function(){//375 33 325 8418
 
 	
 
