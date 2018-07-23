@@ -1,16 +1,22 @@
-	$("document").ready(function(){//375 33 325 8418
-
-	
-
-
+	$("document").ready(function(){
 
 		$(".menu a:nth-child(1)").click(function(){
 			$(".SignIn").css("display","inline-block");
-			$(".SignIn input").focus();
+			$(".btn-div").css("display","none");
+			$(".Registration").css("display","none");
 		});
 	
 		$(".menu a:nth-child(2) ").click(function(){
 			$(".SignIn").css("display","none");
+			$("a-btn-lets").css("display","none");
+			$(".btn-div").css("display","none");
+			$(".Registration").css("display","block");
+
+		});
+
+		$(".btn-lets ").click(function(){
+			$(".SignIn").css("display","inline-block");
+			$(".btn-div").css("display","none");
 
 		});
 		$(".SignIn input:nth-child(3)").click(function(){
