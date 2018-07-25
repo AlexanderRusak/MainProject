@@ -34,14 +34,17 @@
 	  					<div  class="SignIn">
 	  						<a name="SignIn"></a>
 							<div>
-								<label>UserName</label>
-								<input id="username" type="text" placeholder="Enter username" name="">
+								<form action="check.php" name="test" method="post">
+									<label>UserName</label>
+								<input id="username" type="text" name="username" placeholder="Enter username">
 							</div>
 							<div>
 								<label>PassWord</label>
 								<input id="password" type="password" name="">
 							</div>
-							<input  type="submit">
+							<input  type="submit" name="done" value="Готово">
+						</form>
+								
 	  					</div>	
 	  					<div  class="Registration">
 	  						<a name="Reg"></a>
