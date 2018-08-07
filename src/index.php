@@ -11,7 +11,7 @@
 	
 </head>
 <body>
-	  		`<div class="white">
+	  	<div class="white">
 	  			<div class="left-container">
 	  				<div class="fixed-menu">
 	  				<div class="logo">
@@ -33,35 +33,43 @@
 	  			 	</div>
 	  					<div  class="SignIn">
 	  						<a name="SignIn"></a>
+	  						<form action="check.php" name="test" method="post">
 							<div>
-								<form action="check.php" name="test" method="post">
+								
 									<label>UserName</label>
-								<input id="username" type="text" name="username" placeholder="Enter username">
+									<input  type="text" name="login" placeholder="Enter username">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input id="password" type="password" name="">
+								<input type="password" name="pwd">
 							</div>
 							<input  type="submit" name="done" value="Готово">
 						</form>
 								
 	  					</div>	
-	  					<div  class="Registration">
+	  					<form action="test.php" name="test" method="post">
+	  						<div  class="Registration">
 	  						<a name="Reg"></a>
 							<div>
-								<label>Name</label>
-								<input id="lb_regname" type="text" placeholder="Enter your name" name="">
+								<label>Login</label>
+								<input type="text" placeholder="Enter your name" name="login">
 							</div>
 							<div>
-								<label>Surname</label>
-								<input id="lb_regsurname" type="text" placeholder="Enter surname" name="">
+								<label>Email</label>
+								<input  type="text" placeholder="Enter surname" name=email">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input id="password" type="password" name="">
+								<input  type="text" placeholder="Enter surname" name="pwd">
+							</div>
+							<div>
+								<label>PassWord</label>
+								<input  type="password" name="pwd">
 							</div>
 							<input  type="submit">
-	  					</div>			
+	  					</div>	
+	  					</form>
+	  							
 	  			 	<div class="btn-div">
 	  			 		<a class="a-btn-lets"href="#">
 	  			 			 <div class="btn-lets">
