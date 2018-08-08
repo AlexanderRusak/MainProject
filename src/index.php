@@ -3,14 +3,15 @@
 <head>
 	<title>Main</title>
 	<meta charset="utf-8" />
-	<script type="text/javascript" src="JS/jquerry.js"></script>
+	<script type="text/javascript" src="JS/jquery.js"></script>
+	<script type="text/javascript" src="JS/validation.js" ></script>
+	<script type="text/javascript" src="JS/scripts.js" ></script>
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
-	<script type="text/javascript"  src="JS/scripts.js"></script>
-	
 </head>
 <body>
+	
 	  	<div class="white">
 	  			<div class="left-container">
 	  				<div class="fixed-menu">
@@ -32,8 +33,12 @@
 	  			 		I’m an UI designer that prides ourself on being strategic brand partners and awesome product providers
 	  			 	</div>
 	  					<div  class="SignIn">
-	  						<a name="SignIn"></a>
-	  						<form action="check.php" name="test" method="post">
+	  						
+
+
+
+	  						<!--     Форма входа -->
+	  						<form  name="test" id="logInForm">
 							<div>
 								
 									<label>UserName</label>
@@ -43,11 +48,11 @@
 								<label>PassWord</label>
 								<input type="password" name="pwd">
 							</div>
-							<input  type="submit" name="done" value="Готово">
+							<button type="submit" value="Send"></button>  
 						</form>
-								
-	  					</div>	
-	  					<form action="test.php" name="test" method="post">
+							<!--                              -->	
+	  					</div>
+	  					<form  name="test" id="regForm" >
 	  						<div  class="Registration">
 	  						<a name="Reg"></a>
 							<div>
@@ -66,7 +71,7 @@
 								<label>PassWord</label>
 								<input  type="password" name="pwd">
 							</div>
-							<input  type="submit">
+							<button type="submit"></button>
 	  					</div>	
 	  					</form>
 	  							
@@ -147,10 +152,15 @@
 					<div class="about">
 						<div class="leave_msg">
 							<div>Leave a Message</div>
-							<form id="msg_form" class="leave_msg_form">
-								<input type="text" name="" placeholder="Name*">
-								<input type="text" name="" placeholder="Email*">
-								<textarea required form="msg_form" placeholder="Message*"></textarea> 
+							<form id="msg_form" class="leave_msg_form" role="form">
+								<div>
+									<input type="text" name="name" for="name" placeholder="Name*">
+								</div>
+								<div>
+									<input type="email" name="email" for="email" placeholder="Email*">
+								</div>
+								<div><textarea required form="msg_form" for="text" placeholder="Message*"></textarea> </div>
+								
 								<input class="btn_leave_msg" type="submit" name="" value="Send">
 							</form>
 						</div>
