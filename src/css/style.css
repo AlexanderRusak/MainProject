@@ -117,6 +117,11 @@
   margin-right: 30px;
   margin-top: 15px; }
 
+.Registration div input[type=email] {
+  float: right;
+  margin-right: 30px;
+  margin-top: 15px; }
+
 .Registration input[type=password] {
   float: right;
   margin-right: 30px;
@@ -612,3 +617,15 @@
   color: #3e3e3e;
   font-family: "Raleway",sans-serif;
   font-size: 14px; }
+
+#email-error {
+  font-size: 12px;
+  color: red;
+  position: relative;
+  top: -15px; }
+
+#name-error {
+  font-size: 12px;
+  color: red;
+  position: relative;
+  top: -15px; }

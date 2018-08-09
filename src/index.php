@@ -3,8 +3,9 @@
 <head>
 	<title>Main</title>
 	<meta charset="utf-8" />
-	<script type="text/javascript" src="JS/jquery.js"></script>
-	<script type="text/javascript" src="JS/validation.js" ></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 	<script type="text/javascript" src="JS/scripts.js" ></script>
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -48,30 +49,31 @@
 								<label>PassWord</label>
 								<input type="password" name="pwd">
 							</div>
-							<button type="submit" value="Send"></button>  
+							<input type="submit" value="Send"></input>  
 						</form>
 							<!--                              -->	
 	  					</div>
+
 	  					<form  name="test" id="regForm" >
 	  						<div  class="Registration">
 	  						<a name="Reg"></a>
 							<div>
 								<label>Login</label>
-								<input type="text" placeholder="Enter your name" name="login">
+								<input type="text" placeholder="Enter your login" name="login">
 							</div>
 							<div>
 								<label>Email</label>
-								<input  type="text" placeholder="Enter surname" name=email">
+								<input  type="text" placeholder="Enter your email" name=reg_email">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input  type="text" placeholder="Enter surname" name="pwd">
+								<input id="reg_pwd1"  type="password" name="pwd1">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input  type="password" name="pwd">
+								<input id="reg_pwd2"  type="password" name="pwd2">
 							</div>
-							<button type="submit"></button>
+							<input type="submit"></input>
 	  					</div>	
 	  					</form>
 	  							
@@ -159,8 +161,10 @@
 								<div>
 									<input type="email" name="email" for="email" placeholder="Email*">
 								</div>
-								<div><textarea required form="msg_form" for="text" placeholder="Message*"></textarea> </div>
-								
+									
+								<div>
+								<textarea required form="msg_form" for="text" placeholder="Message*"></textarea>
+								</div>
 								<input class="btn_leave_msg" type="submit" name="" value="Send">
 							</form>
 						</div>
