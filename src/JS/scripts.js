@@ -53,7 +53,9 @@
 
 	 $("#msg_form").validate({
 	 		
-	 		
+	 		submitHandler: function(form) {
+    form.submit();
+	 		},
 			rules:{
 				leave_msg_form_name:{
 					required: true,

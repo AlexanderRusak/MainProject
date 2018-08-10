@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,10 +80,20 @@
 								<label>PassWord</label>
 								<input id="reg_pwd2"  type="password" name="reg_pwd2">
 							</div>
-							<input type="submit"></input>
+							<input type="submit" value="Send"></input>
 	  					</div>	
 	  					</form>
-	  							
+	  							<?php
+	$message="From ".htmlspecialchars($_POST['leave_msg_form_name'])." message ".htmlspecialchars($_POST['leave_msg_form_msg'])." addres ".htmlspecialchars($_POST['leave_msg_form_email']);
+	$to="375298388602@mail.ru";	
+	$from="rusak.alexander2017@yandex.ru";
+	$subject="From my website";
+	$headers = 'From: "rusak.alexander2017@yandex.ru"' . "\r\n" .
+    'Reply-To: rusak.alexander2017@yandex.ru' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+	mail($to, $subject, $message,$headers);	
+
+?>
 	  			 	<div class="btn-div">
 	  			 		<a class="a-btn-lets"href="#">
 	  			 			 <div class="btn-lets">
@@ -159,7 +171,7 @@
 					<div class="about">
 						<div class="leave_msg">
 							<div>Leave a Message</div>
-							<form id="msg_form" class="leave_msg_form" role="form">
+							<form id="msg_form" class="leave_msg_form" action="index.php"  method="post" >
 								<div>
 									<input type="text" name="leave_msg_form_name" for="name" placeholder="Enter your name*">
 								</div>
@@ -169,9 +181,10 @@
 								<div >
 									<input id="msg_leave"  type="text"  name="leave_msg_form_msg" placeholder="Message*"></input>
 								</div>
-								<input class="btn_leave_msg" type="submit" name="" value="Send">
+								<input class="btn_leave_msg" type="submit"  value="Send">
 							</form>
 						</div>
+						
 						<div class="line"></div>
 						<div class="location">
 							<ul>

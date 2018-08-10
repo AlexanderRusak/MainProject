@@ -102,6 +102,7 @@ margin-top: 0px;
   position: absolute;
   display: none;
   width: 450px;
+  height: 290px;
   margin-top: 10px;
   margin-left: 245px;
   background-color: #131321;
@@ -123,6 +124,7 @@ margin-top: 0px;
   color: #131321;
   outline: none;
   cursor: pointer;
+  margin-top: 10px;
 }
 .Registration input[type=submit]:hover{
   background-color: #fb6470;
@@ -585,7 +587,27 @@ color:#fb6470;
     top:30px;
     left:145px;
 }
-
+#reg_email-error{
+    font-size: 12px;
+    color:red;
+    position:absolute;
+    top:85px;
+    left:145px;
+}
+#reg_pwd1-error{
+  font-size: 12px;
+    color:red;
+    position:absolute;
+    top:145px;
+    left:145px;
+}
+#reg_pwd2-error{
+  font-size: 12px;
+    color:red;
+    position:absolute;
+    top:205px;
+    left:145px;
+}
 
 
 

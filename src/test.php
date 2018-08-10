@@ -1,9 +1,8 @@
 <?php
-$mysqli = new mysqli ("localhost", "root", "", "ReumererDB");
-$mysqli->query ("SET NAMES 'utf8'");
-$success = $mysqli->query ("INSERT INTO `users` (`login`, `pwd`, `reg_date`) VALUES ('".$_POST['login']."', '".$_POST['pwd']."', '".time ()."')");
-echo $success;
-$mysqli->close ();
-echo $_POST['login'];
-print_r($_POST);
-?>
+							$message="From ".htmlspecialchars($_POST['leave_msg_form_name'])." messge ".htmlspecialchars($_POST['leave_msg_form_msg'])."addres ".htmlspecialchars($_POST['leave_msg_form_email']);
+							$to="375298388602@mail.ru";
+							$from="resumerer@mail.ru";
+							$subject="From my website";
+							$headers="From $from\r\nReplyTo: $from\r\nContent-type:text/plain; charset=utf-8\r\n";
+							mail($to, $subject, $messge,$headers);htmlspecialchars($fio)
+						?>
