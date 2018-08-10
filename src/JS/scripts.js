@@ -2,21 +2,24 @@
 	 console.log("ok");	
 	 	jQuery.validator.setDefaults({
   		debug: true,
-  		success: "valid"
+  		success: "logInForm_valid"
 		});
 	 $("#logInForm").validate({
 			rules:{
-				login:{
+				signIn_login:{
 					required: true,
 					minlength:7
 				},
-				pwd:{
+				signIn_pwd:{
 					required:true
 				}
 			},
 			messages:{
-				login:{
-					required: "Поле имени обязательно для заполнения"
+				signIn_login:{
+					required: "Field for your name is required"
+				},
+				signIn_pwd:{
+					required: "Field for your password is required"
 				}
 			}
 			
@@ -24,17 +27,18 @@
 
 	 $("#regForm").validate({
 			rules:{
-				login:{
+				reg_login:{
 					required: true,
 					minlength:7
 				},
 				reg_email:{
+					required:true,
+					email:true
+				},
+				reg_pwd1:{
 					required:true
 				},
-				pwd1:{
-					required:true
-				},
-				pwd2:{
+				reg_pwd2:{
 					equalTo:"#reg_pwd1"
 				},
 				
@@ -49,21 +53,32 @@
 
 	 $("#msg_form").validate({
 	 		
-	 		errorClass:"qwer",
+	 		
 			rules:{
-				name:{
+				leave_msg_form_name:{
 					required: true,
-					minlength:7
+					minlength:3
 				},
-				email:{
+				leave_msg_form_email:{
 					required:true,
 					email:true
+				},
+				leave_msg_form_msg:{
+					required:true
 				}
 			},
 			messages:{
-				name:{
-					required: "Поле имени обязательно для заполнения"
+				leave_msg_form_name:{
+					required: "Field for your name is required",
+					minlength:"The name can not be less than 3 characters"
+				},
+				leave_msg_form_email:{
+					required: "Field for your email is required"
+				},
+				leave_msg_form_msg:{
+					required: "Field for your message is required"
 				}
+
 			}
 			
 		});

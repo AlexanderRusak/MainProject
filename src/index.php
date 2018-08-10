@@ -41,15 +41,20 @@
 	  						<!--     Форма входа -->
 	  						<form  name="test" id="logInForm">
 							<div>
-								
 									<label>UserName</label>
-									<input  type="text" name="login" placeholder="Enter username">
+							</div>
+							<div>
+									<input  type="text" name="signIn_login" placeholder="Enter username">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input type="password" name="pwd">
+								<input type="password" name="signIn_pwd">
 							</div>
-							<input type="submit" value="Send"></input>  
+							<div>
+								<input type="submit" value="Send">
+							</div>
+															
+							
 						</form>
 							<!--                              -->	
 	  					</div>
@@ -59,19 +64,19 @@
 	  						<a name="Reg"></a>
 							<div>
 								<label>Login</label>
-								<input type="text" placeholder="Enter your login" name="login">
+								<input type="text" placeholder="Enter your login" name="reg_login">
 							</div>
 							<div>
 								<label>Email</label>
-								<input  type="text" placeholder="Enter your email" name=reg_email">
+								<input  type="text" placeholder="Enter your email" name="reg_email">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input id="reg_pwd1"  type="password" name="pwd1">
+								<input id="reg_pwd1"  type="password" name="reg_pwd1">
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input id="reg_pwd2"  type="password" name="pwd2">
+								<input id="reg_pwd2"  type="password" name="reg_pwd2">
 							</div>
 							<input type="submit"></input>
 	  					</div>	
@@ -156,14 +161,13 @@
 							<div>Leave a Message</div>
 							<form id="msg_form" class="leave_msg_form" role="form">
 								<div>
-									<input type="text" name="name" for="name" placeholder="Name*">
+									<input type="text" name="leave_msg_form_name" for="name" placeholder="Enter your name*">
 								</div>
 								<div>
-									<input type="email" name="email" for="email" placeholder="Email*">
+									<input type="email" name="leave_msg_form_email" for="email" placeholder="Enter your email*">
 								</div>
-									
-								<div>
-								<textarea required form="msg_form" for="text" placeholder="Message*"></textarea>
+								<div >
+									<input id="msg_leave"  type="text"  name="leave_msg_form_msg" placeholder="Message*"></input>
 								</div>
 								<input class="btn_leave_msg" type="submit" name="" value="Send">
 							</form>

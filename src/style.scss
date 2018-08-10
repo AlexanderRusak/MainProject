@@ -53,6 +53,7 @@ margin-top: 0px;
   position: absolute;
   display: none;
   width: 450px;
+  height: 180px;
   margin-top: 20px;
   margin-left: 245px;
   background-color: #131321;
@@ -69,25 +70,32 @@ margin-top: 0px;
 }
 .SignIn input[type=submit]{
   float: right;
-  margin-right: 30px;
+  position: absolute;
+  right: 30px;
   margin-top: 10px;
   font-family: "Raleway" ,sans-serif;
   color: #131321;
   outline: none;
   cursor: pointer;
 }
+.SignIn div:last-child{
+  float: right;
+}
 .SignIn input[type=submit]:hover{
   background-color: #fb6470;
+  
 }
 .SignIn input[type=text]{
   float: right;
-  margin-right: 30px;
-  margin-top: 15px;
+  position: relative;
+  right: 30px;
+  bottom: 45px;
 }
 .SignIn input[type=password]{
   float: right;
-  margin-right: 30px;
-  margin-top: 15px;
+  position: relative;
+  right: 30px;
+  bottom: 45px;
 
 }
 .Registration{
@@ -395,17 +403,23 @@ color:#fb6470;
 }
 .about{
   width: 733px;
-  height: 306px;
+  height: 400px;
   margin-top:80px;
 }
 .leave_msg{
   width: 265px;
   height: 306px;
   float: left; 
+  color: #3e3e3e;
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 50px;
 }
-.leave_msg:nth-child(1){
+.leave_msg_form div{
+  
   width: 270px;
-  height: 21px;
+  height: 70px;
   color: #3e3e3e;
   font-family: "Raleway", sans-serif;
   font-size: 22px;
@@ -422,58 +436,14 @@ color:#fb6470;
   font-size: 14px;
   font-weight: 400;
   line-height: 50px;
+}
+#msg_leave{
+  height: 80px;
+}
 
-}
-.leave_msg_form input:nth-child(1)::placeholder{
-  opacity: 0.8;
-  color: #3e3e3e;
-  font-family:'Raleway-MediumItalic',sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 50px;
-}
-.leave_msg_form input:nth-child(2){
-  padding-left: 15px;
-  display: inline-block;
-  margin-top: 15px;
-  width: 250px;
-  height: 35px;
-   color: #3e3e3e;
-  font-family:'Raleway-MediumItalic',sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 50px;
-}
-.leave_msg_form input:nth-child(2)::placeholder{
-  opacity: 0.8;
-  color: #3e3e3e;
-  font-family:'Raleway-MediumItalic',sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 50px;
-}
-.leave_msg_form textarea:nth-child(3){
-  text-align: top;
-  margin-top: 15px;
-  padding-left: 15px;
-  display: inline-block;
-  width: 250px;
-  height: 95px;
-  color: #3e3e3e;
-  font-family:'Raleway-MediumItalic',sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 50px;
-}
-.leave_msg_form textarea:nth-child(3)::placeholder{
-  opacity: 0.8;
-  color: #3e3e3e;
-  font-family:'Raleway-MediumItalic',sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 50px;
-}
+
 .btn_leave_msg {
+  margin-top: 35px;
   width: 95px;
   height: 35px;
   float: right; 
@@ -565,21 +535,56 @@ color:#fb6470;
   font-family: "Raleway",sans-serif;
   font-size: 14px;
   }
-  #email-error{
+
+
+
+#signIn_login-error{
+    height: 15px;
     font-size: 12px;
     color:red;
     position: relative;
-    top:-15px;
+    top: -65px;
+    float: right;
+    right: 70px;
   }
-  #name-error{
+#signIn_pwd-error{
+    position: absolute;
+    font-size: 12px;
+    color:red;
+    display: inline-block;
+    top:90px;
+    float: right;
+    right: 65px;
+  }
+
+  #leave_msg_form_email-error{
+    width: 200px;
+    height: 25px;
+    display: inline-block;
     font-size: 12px;
     color:red;
     position: relative;
-    top:-15px;
-
-
+    top:-20px;
+  }
+  #leave_msg_form_name-error{
+    font-size: 12px;
+    color:red;
+    position: relative;
+    top:-20px;
 }
-
+  #msg_leave-error{
+    font-size: 12px;
+    color:red;
+    position: relative;
+    top:-20px;
+}
+#reg_login-error{
+    font-size: 12px;
+    color:red;
+    position:absolute;
+    top:30px;
+    left:145px;
+}
 
 
 
