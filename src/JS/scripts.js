@@ -1,14 +1,19 @@
 	$("document").ready(function(){
 	 console.log("ok");	
+
 	 	jQuery.validator.setDefaults({
   		debug: true,
   		success: "logInForm_valid"
 		});
 	 $("#logInForm").validate({
+	 		
+	 		submitHandler: function(form) {
+    		form.submit();
+	 		},
 			rules:{
 				signIn_login:{
 					required: true,
-					minlength:7
+					minlength:3
 				},
 				signIn_pwd:{
 					required:true
@@ -25,11 +30,14 @@
 			
 		});	
 
-	 $("#regForm").validate({
+
+   $("#btn_reg_form").click(function(){
+			 $("#regForm").validate({
+
 			rules:{
 				reg_login:{
 					required: true,
-					minlength:7
+					minlength:3
 				},
 				reg_email:{
 					required:true,
@@ -47,14 +55,35 @@
 				login:{
 					required: "Поле имени обязательно для заполнения"
 				}
-			}
+			},
+
+	 		submitHandler: function(form) {
+	 			console.log("work");	
+	 			
+    			var email=$("#reg_email").val();
+    			$.post("login.php",{email:email})
+    			.done(function(data){
+    				if (data=="failed") {
+    					console.log("work1");							
+    					$("#reg_email_server_err").text("User with that email already exists").addClass("reg_email_server_err");
+    				}
+    				else{
+    					form.submit();
+    					window.location="auth_page.php";
+    				}
+    			});
+    			
+	 		}
 			
 		});	
+});
+
+
 
 	 $("#msg_form").validate({
 	 		
 	 		submitHandler: function(form) {
-    form.submit();
+    			form.submit();
 	 		},
 			rules:{
 				leave_msg_form_name:{

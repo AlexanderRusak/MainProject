@@ -61,16 +61,18 @@
 							<!--                              -->	
 	  					</div>
 
-	  					<form  name="test" id="regForm" >
+	  					<form action="registration_without_email.php" method="post" name="test" id="regForm" >
 	  						<div  class="Registration">
 	  						<a name="Reg"></a>
 							<div>
 								<label>Login</label>
-								<input type="text" placeholder="Enter your login" name="reg_login">
+								<input type="text" placeholder="Enter your login" id="reg_login" name="reg_login">
+								<div id="reg_login_server_err"></div>
 							</div>
 							<div>
-								<label>Email</label>
-								<input  type="text" placeholder="Enter your email" name="reg_email">
+								<label >Email</label>
+								<input  type="text" placeholder="Enter your email" id="reg_email" name="reg_email">
+								<b id="reg_email_server_err"></b>
 							</div>
 							<div>
 								<label>PassWord</label>
@@ -80,20 +82,10 @@
 								<label>PassWord</label>
 								<input id="reg_pwd2"  type="password" name="reg_pwd2">
 							</div>
-							<input type="submit" value="Send"></input>
+							<input type="submit" id="btn_reg_form"  value="Send"></input>
 	  					</div>	
 	  					</form>
-	  							<?php
-	$message="From ".htmlspecialchars($_POST['leave_msg_form_name'])." message ".htmlspecialchars($_POST['leave_msg_form_msg'])." addres ".htmlspecialchars($_POST['leave_msg_form_email']);
-	$to="375298388602@mail.ru";	
-	$from="rusak.alexander2017@yandex.ru";
-	$subject="From my website";
-	$headers = 'From: "rusak.alexander2017@yandex.ru"' . "\r\n" .
-    'Reply-To: rusak.alexander2017@yandex.ru' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-	mail($to, $subject, $message,$headers);	
-
-?>
+	  	
 	  			 	<div class="btn-div">
 	  			 		<a class="a-btn-lets"href="#">
 	  			 			 <div class="btn-lets">
@@ -171,7 +163,7 @@
 					<div class="about">
 						<div class="leave_msg">
 							<div>Leave a Message</div>
-							<form id="msg_form" class="leave_msg_form" action="index.php"  method="post" >
+							<form id="msg_form" class="leave_msg_form" action="mail.php"  method="post" >
 								<div>
 									<input type="text" name="leave_msg_form_name" for="name" placeholder="Enter your name*">
 								</div>

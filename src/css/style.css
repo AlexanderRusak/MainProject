@@ -581,3 +581,11 @@
   position: absolute;
   top: 205px;
   left: 145px; }
+
+.reg_email_server_err {
+  font-size: 12px;
+  color: red;
+  font-weight: 400;
+  position: absolute;
+  top: 87px;
+  left: 145px; }
