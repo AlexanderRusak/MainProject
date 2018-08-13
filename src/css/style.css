@@ -515,23 +515,25 @@
   font-family: "Raleway",sans-serif;
   font-size: 14px; }
 
-#signIn_login-error {
+#sgn_login-error {
   height: 15px;
   font-size: 12px;
   color: red;
   position: relative;
   top: -65px;
   float: right;
-  right: 70px; }
+  right: 135px;
+  font-weight: 400; }
 
-#signIn_pwd-error {
+#sgn_pwd-error {
   position: absolute;
   font-size: 12px;
   color: red;
+  font-weight: 400;
   display: inline-block;
   top: 90px;
   float: right;
-  right: 65px; }
+  right: 113px; }
 
 #leave_msg_form_email-error {
   width: 200px;
@@ -587,5 +589,21 @@
   color: red;
   font-weight: 400;
   position: absolute;
-  top: 87px;
+  top: 85px;
   left: 145px; }
+
+.reg_login_server_err {
+  font-size: 12px;
+  color: red;
+  font-weight: 400;
+  position: absolute;
+  top: 25px;
+  left: 130px; }
+
+.sgn_server_err {
+  font-size: 12px;
+  color: red;
+  font-weight: 400;
+  position: absolute;
+  top: 85px;
+  left: 130px; }

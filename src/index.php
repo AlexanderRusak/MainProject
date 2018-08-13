@@ -41,19 +41,22 @@
 
 
 	  						<!--     Форма входа -->
-	  						<form  name="test" id="logInForm">
+	  						<form method="post"   name="test" id="logInForm">
 							<div>
 									<label>UserName</label>
 							</div>
 							<div>
-									<input  type="text" name="signIn_login" placeholder="Enter username">
+									<input id="sgn_login" type="text" name="signIn_login" placeholder="Enter username">
+									
 							</div>
 							<div>
 								<label>PassWord</label>
-								<input type="password" name="signIn_pwd">
+								<input id="sgn_pwd" type="password" name="signIn_pwd">
+								
 							</div>
+							<div id="sgn_server_err"></div>
 							<div>
-								<input type="submit" value="Send">
+								<input id="sgn_btn" type="submit" value="Send">
 							</div>
 															
 							

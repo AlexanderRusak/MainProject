@@ -1,15 +1,16 @@
 	$("document").ready(function(){
 	 console.log("ok");	
 
+
+	 $("#sgn_btn").click(function(){
 	 	jQuery.validator.setDefaults({
   		debug: true,
   		success: "logInForm_valid"
 		});
-	 $("#logInForm").validate({
+
+	 	 $("#logInForm").validate({
 	 		
-	 		submitHandler: function(form) {
-    		form.submit();
-	 		},
+
 			rules:{
 				signIn_login:{
 					required: true,
@@ -26,11 +27,33 @@
 				signIn_pwd:{
 					required: "Field for your password is required"
 				}
-			}
+			},
+				submitHandler: function(form) {
+	 			var login=$("#sgn_login").val();
+	 			var password=$("#sgn_pwd").val();
+	 			$.post("login_ajax.php",{password:password, login:login})
+    			.done(function(data){
+    				alert(data);
+       				if (data=="failed") {
+    					
+    					$("#sgn_server_err").css("display","none");
+    					$("#sgn_server_err").addClass("sgn_server_err").css("display","block").text("Invalid login or password");
+    				}
+    				if (data=="success") {		
+    					form.submit();
+    					window.location="auth_page.php";
+    				}
+    			});
+    			
+    		
+	 		}
 			
 		});	
 
 
+
+	 });
+	
    $("#btn_reg_form").click(function(){
 			 $("#regForm").validate({
 
@@ -61,15 +84,28 @@
 	 			console.log("work");	
 	 			
     			var email=$("#reg_email").val();
-    			$.post("login.php",{email:email})
+    			var login=$("#reg_login").val();
+    			$.post("reg_ajax.php",{email:email, login:login})
     			.done(function(data){
-    				if (data=="failed") {
-    					console.log("work1");							
-    					$("#reg_email_server_err").text("User with that email already exists").addClass("reg_email_server_err");
+       				if (data=="login_failed") {
+    					$("#reg_email_server_err").css("display","none");
+    					$("#reg_login_server_err").css("display","none");
+    					$("#reg_login_server_err").css("display","block").text("User with that login already exists");
     				}
-    				else{
+    				if (data=="email_failed") {
+     					$("#reg_email_server_err").css("display","none");
+    					$("#reg_login_server_err").css("display","none");							
+    					$("#reg_email_server_err").css("display","block").text("User with that email already exists").addClass("reg_email_server_err");
+    				}
+    				if (data=="success") {
     					form.submit();
     					window.location="auth_page.php";
+    				}
+    				if (data=="failed") {
+    					$("#reg_email_server_err").css("display","none");
+    					$("#reg_login_server_err").css("display","none");
+    					$("#reg_email_server_err").css("display","block").text("User with that email already exists").addClass("reg_email_server_err");
+    					$("#reg_login_server_err").css("display","block").text("User with that login already exists").addClass("reg_login_server_err");
     				}
     			});
     			
