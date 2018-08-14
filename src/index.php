@@ -1,4 +1,11 @@
-
+<?php
+	session_start();
+	if(isset($_SESSION['name'])){
+		header('Location: auth_page.php');
+         exit;
+	}
+	
+?>
 
 <!DOCTYPE html>
 <html>
@@ -41,14 +48,15 @@
 
 
 	  						<!--     Форма входа -->
-	  						<form method="post"   name="test" id="logInForm">
-							<div>
-									<label>UserName</label>
-							</div>
-							<div>
-									<input id="sgn_login" type="text" name="signIn_login" placeholder="Enter username">
+	  						
+						<form method="post" action="login_ajax.php"   name="test" id="logInForm">
+									<div>
+										<label>UserName</label>
+									</div>
+									<div>
+										<input id="sgn_login" type="text" name="signIn_login" placeholder="Enter username">
 									
-							</div>
+									</div>
 							<div>
 								<label>PassWord</label>
 								<input id="sgn_pwd" type="password" name="signIn_pwd">
@@ -56,15 +64,17 @@
 							</div>
 							<div id="sgn_server_err"></div>
 							<div>
-								<input id="sgn_btn" type="submit" value="Send">
+								<input id="sgn_btn" type="submit" name="sgn_btn" value="Send">
+								
 							</div>
 															
 							
 						</form>
+							
 							<!--                              -->	
 	  					</div>
 
-	  					<form action="registration_without_email.php" method="post" name="test" id="regForm" >
+	  					<form method="post" action="registration_without_email.php"  id="regForm" >
 	  						<div  class="Registration">
 	  						<a name="Reg"></a>
 							<div>

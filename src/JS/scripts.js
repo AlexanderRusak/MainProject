@@ -87,6 +87,7 @@
     			var login=$("#reg_login").val();
     			$.post("reg_ajax.php",{email:email, login:login})
     			.done(function(data){
+    				alert(data);
        				if (data=="login_failed") {
     					$("#reg_email_server_err").css("display","none");
     					$("#reg_login_server_err").css("display","none");
