@@ -31,7 +31,8 @@
 				submitHandler: function(form) {
 	 			var login=$("#sgn_login").val();
 	 			var password=$("#sgn_pwd").val();
-	 			$.post("login_ajax.php",{password:password, login:login})
+
+	 			$.post("php/login_ajax.php",{password:password, login:login})
     			.done(function(data){
     				alert(data);
        				if (data=="failed") {
@@ -41,7 +42,7 @@
     				}
     				if (data=="success") {		
     					form.submit();
-    					window.location="auth_page.php";
+    					window.location="php/auth_page.php";
     				}
     			});
     			
@@ -85,7 +86,8 @@
 	 			
     			var email=$("#reg_email").val();
     			var login=$("#reg_login").val();
-    			$.post("reg_ajax.php",{email:email, login:login})
+    			var password=$('#reg_pwd1').val();
+    			$.post("php/reg_ajax.php",{email:email, login:login,password:password})
     			.done(function(data){
     				alert(data);
        				if (data=="login_failed") {
@@ -99,9 +101,30 @@
     					$("#reg_email_server_err").css("display","block").text("User with that email already exists").addClass("reg_email_server_err");
     				}
     				if (data=="success") {
-    					form.submit();
-    					window.location="auth_page.php";
-    				}
+    					alert(email+password+login);
+    					var obj={
+    						email,
+    						login,
+    						password
+    					}
+    					$.ajax({
+            			url: "../php/registration_without_email.php",
+            			type: "POST",
+            			dataType:'json',
+            			data:"param="+JSON.stringify(obj),
+ 						success:function(html) {
+						$("<p class='for_content'>" + html['title'] + "</p>").
+ 						prependTo(".content").
+ 						hide().
+ 						fadeIn(500);
+ }
+       					 });
+    					
+    						form.submit();
+    						window.location="php/registration_without_email.php";
+    					}
+    					
+    				
     				if (data=="failed") {
     					$("#reg_email_server_err").css("display","none");
     					$("#reg_login_server_err").css("display","none");

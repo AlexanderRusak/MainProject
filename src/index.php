@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['name'])){
-		header('Location: auth_page.php');
+		header('Location: php/auth_page.php');
          exit;
 	}
 	
@@ -49,7 +49,7 @@
 
 	  						<!--     Форма входа -->
 	  						
-						<form method="post" action="login_ajax.php"   name="test" id="logInForm">
+						<form method="post" action="php/login_ajax.php"   name="test" id="logInForm">
 									<div>
 										<label>UserName</label>
 									</div>
@@ -74,7 +74,7 @@
 							<!--                              -->	
 	  					</div>
 
-	  					<form method="post" action="registration_without_email.php"  id="regForm" >
+	  					<form method="post" action="php/registration_without_email.php"  id="regForm" >
 	  						<div  class="Registration">
 	  						<a name="Reg"></a>
 							<div>
@@ -176,7 +176,7 @@
 					<div class="about">
 						<div class="leave_msg">
 							<div>Leave a Message</div>
-							<form id="msg_form" class="leave_msg_form" action="mail.php"  method="post" >
+							<form id="msg_form" class="leave_msg_form" action="php/mail.php"  method="post" >
 								<div>
 									<input type="text" name="leave_msg_form_name" for="name" placeholder="Enter your name*">
 								</div>

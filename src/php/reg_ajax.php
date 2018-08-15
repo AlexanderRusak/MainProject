@@ -2,6 +2,7 @@
 include 'db.php';
 $email=$_POST['email'];
 $login=$_POST['login'];
+$password=$_POST['password'];
 $chk_email=mysqli_query($connection,"SELECT * FROM `users` WHERE `email`='{$email}'");
 $row_email=mysqli_num_rows($chk_email);
 $chk_login=mysqli_query($connection,"SELECT * FROM `users` WHERE `login`='{$login}'");

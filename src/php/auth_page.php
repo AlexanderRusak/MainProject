@@ -3,11 +3,11 @@
 	if (isset($_POST['logout'])) {
 		unset($_SESSION['name']);
 		session_destroy();
-		header('Location: index.php');
+		header('Location: ../index.php');
          exit;
 	}
 	if (is_null($_SESSION['name'])){
-		header('Location: index.php');
+		header('Location: ../index.php');
          exit;
 	}
 	else{
