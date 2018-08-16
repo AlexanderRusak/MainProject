@@ -13,7 +13,7 @@
     else{
     	mail($to, $subject, $message,$headers);	
     	$message="";
-    	header('Location: index.php');
+    	header('Location: http://src/index.php');
   		exit;
     }
 	die(header('Location:'.$_SERVER['PHP_SELF']));

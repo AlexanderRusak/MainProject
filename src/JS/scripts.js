@@ -101,29 +101,9 @@
     					$("#reg_email_server_err").css("display","block").text("User with that email already exists").addClass("reg_email_server_err");
     				}
     				if (data=="success") {
-    					alert(email+password+login);
-    					var obj={
-    						email,
-    						login,
-    						password
+    					window.location="../php/auth_page.php";
     					}
-    					$.ajax({
-            			url: "../php/registration_without_email.php",
-            			type: "POST",
-            			dataType:'json',
-            			data:"param="+JSON.stringify(obj),
- 						success:function(html) {
-						$("<p class='for_content'>" + html['title'] + "</p>").
- 						prependTo(".content").
- 						hide().
- 						fadeIn(500);
- }
-       					 });
-    					
-    						form.submit();
-    						window.location="php/registration_without_email.php";
-    					}
-    					
+    			
     				
     				if (data=="failed") {
     					$("#reg_email_server_err").css("display","none");
