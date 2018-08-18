@@ -59,6 +59,11 @@
 	 		$('.personal_data ul li textarea').css('display','none');
 	 		$('.personal_data ul li div').css('display','block');
 	 	})
+	 	$('.btn_edit_about_work').click(function(){
+	 		alert('sssa');
+	 		$('.btn_edit_about_work').css('display','none');
+	 	})
+	 	
 	});
 	
 

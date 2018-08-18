@@ -110,15 +110,226 @@
 					<div class="btn_edit_about_me_pd">
 						<div>Edit</div>
 					</div>
-				</div>
+					</div>
 					
+				</div>	</div>
+			<div class="line"></div>
+			<div class="work">
+				<div class="header_work">Work Experience</div>
+				<div class="red_line_about_me"></div>
+			<div class="firstBlocks">
+				<div class="rightSection">
+					<img src="../image/rightBlock.png" alt="">
+					<div class="aboutWorkRight">
+						<textarea maxlength="24"  class="position" placeholder="Enter your position"></textarea>
+						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
 				</div>
+				<div class="ellipse">
+						<img src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+						<img class="r2" src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+				</div>
+				<div class="leftSection">
+					<img src="../image/leftBlock.png" alt="">
+					<div class="aboutWorkLeft">
+						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea  maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+			</div>
 				
+			<div class="secondBlock">
+				<div class="rightSection2">
+					<img src="../image/rightBlock.png" alt="">
+					<div class="aboutWorkRight">
+						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+				<div class="ellipse2">
+						<img src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+						<img class="r2" src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+				</div>
+				<div class="leftSection2">
+					<img src="../image/leftBlock.png" alt="">
+					<div class="aboutWorkLeft">
+						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea  maxlength="25"class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+					<div>
+						<div class="btn_acception_work">
+							<div class="btn_accept_work">Accept</div>
+							<div class="btn_cancel_work">Cancel</div>
+						</div>
+						<div id="a" class="btn_edit_about_work">
+							<div>Edit</div>
+						</div>
+					</div>
+			</div>
+				
+				<div class="line"></div>
+
+
+			</div>
+			<div class="work">
+				<div class="header_work">Education</div>
+				<div class="red_line_about_me"></div>
+			<div class="firstBlocks">
+				<div class="rightSection">
+					<img src="../image/rightBlock.png" alt="">
+					<div class="aboutWorkRight">
+						<textarea maxlength="24"  class="position" placeholder="Enter your position"></textarea>
+						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+				<div class="ellipse">
+						<img src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+						<img class="r2" src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+				</div>
+				<div class="leftSection">
+					<img src="../image/leftBlock.png" alt="">
+					<div class="aboutWorkLeft">
+						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea  maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+			</div>
+				
+			<div class="secondBlock">
+				<div class="rightSection2">
+					<img src="../image/rightBlock.png" alt="">
+					<div class="aboutWorkRight">
+						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+				<div class="ellipse2">
+						<img src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+						<img class="r2" src="../image/Ellipse.png" alt="">
+						<img  class="little" src="../image/littleRed.png" alt="">
+				</div>
+				<div class="leftSection2">
+					<img src="../image/leftBlock.png" alt="">
+					<div class="aboutWorkLeft">
+						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea  maxlength="25"class="organization" placeholder="Enter organization name"></textarea>
+						<div class="resultPosition"></div>
+						<div class="resultOrganization"></div>
+					</div>
+				</div>
+					<div>
+						<div class="btn_acception_work">
+							<div class="btn_accept_work">Accept</div>
+							<div class="btn_cancel_work">Cancel</div>
+						</div>
+						<div id="a" class="btn_edit_about_work">
+							<div>Edit</div>
+						</div>
+					</div>
+			</div>
+			</div>
+			<div class="skills">
+				<div class="header_skills">My Skills</div>
+				<div class="red_line_about_me"></div>
+				<div class="skillsBlock">
+					<div class="ueBlock">
+						<div class="userExperience"></div>
+						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
+						<label for="number" class="number"></label>
+					</div>
+					<div class="ueBlock2">
+						<div class="userExperience"></div>
+						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
+						<label for="number" class="number"></label>
+					</div>
+					<div class="ueBlock3">
+						<div class="userExperience"></div>
+						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
+						<label for="number" class="number"></label>
+					</div>
+					<div class="ueBlock4">
+						<div class="userExperience"></div>
+						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
+						<label for="number" class="number"></label>
+					</div>
+					<div class="ueBlock5">
+						<div class="userExperience"></div>
+						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
+						<label for="number" class="number"></label>
+					</div>
+					<div class="ueBlock6">
+						<div class="userExperience"></div>
+						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
+						<label for="number" class="number"></label>
+					</div>
+				</div>
 			</div>
 
-			
+				<div class="about">
+						<div class="leave_msg">
+							<div>Leave a Message</div>
+							<form id="msg_form" class="leave_msg_form" action="php/mail.php"  method="post" >
+								<div>
+									<input type="text" name="leave_msg_form_name" for="name" placeholder="Enter your name*">
+								</div>
+								<div>
+									<input type="email" name="leave_msg_form_email" for="email" placeholder="Enter your email*">
+								</div>
+								<div >
+									<input id="msg_leave"  type="text"  name="leave_msg_form_msg" placeholder="Message*"></input>
+								</div>
+								<input class="btn_leave_msg" type="submit"  value="Send">
+							</form>
+						</div>
+						<div class="line2"></div>
+						
+						<div class="location">
+							<ul>
+								<li><div class="location_img_1"></div>
+									<div class="location_text">
+										<div>Location</div>
+										<div>324, Golden Tower, Amborkhana, Sylhet</div>
+									</div>
+								</li>
+								<li><div class="location_img_2"></div>
+									<div class="location_text">
+										<div>Email</div>
+										<div>rusak.alexander2017@yandex.ru</div>
+									</div>
+								</li>
+								<li><div class="location_img_3"></div>
+									<div class="location_text">
+										<div>Call Me</div>
+										<div>+375(29) 838-86-02</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 		</div>
 		
-</form>
+
 </body>
 </html>
