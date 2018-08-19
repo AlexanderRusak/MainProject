@@ -32,30 +32,34 @@
 </head>
 <body>
 		<div class="container">
-			<div class="left-layer">
+			<div class="fix">
+				<div class="left-layer">
 				<div class="photo"></div>
 				<nav class="left-menu">
 					<ul>
-						<li>Home</li>
-						<li>About me</li>
-						<li>Education</li>
-						<li>Work Experience</li>
-						<li>Skills</li>
-						<li>Portfolio</li>
-						<li>Contacts</li>
+						<a href="#"><li>Home</li></a>
+						<a href="#about"><li>About me</li></a>
+						<a href="#work"><li>Work Experience</li></a>
+						<a href="#Education"><li>Education</li></a>
+						<a href="#skills"><li>Skills</li></a>
+						<a href="#contacts"><li>Contacts</li></a>
 					</ul>
 				</nav>
 			</div>
+			</div>
+			
 
 
 			<div class="top-layer">
 				<div class="main-text">Lets Make Something Great</div>
-				<div class="under-main-text">Short about me</div>
-				<form action="auth_page.php" method="post">
+				<div class="under-main-text"></div>
+				<form class="logout" action="auth_page.php" method="post">
 			<input type="submit" name="logout" value="logout"/>	
+				</form>
 			</div>
 
 			<div class="about_me">
+				<a name="about"></a>
 				<div class="h_about_me">About me</div>
 				<div class="red_line_about_me"></div>
 				<div class="edit_about_me">
@@ -64,7 +68,12 @@
 
 				</div>
 				<div class="sbmt_about_me">
-					<div class="about_me_photo"></div>
+					<div class="about_me_photo">
+						<div class="btn_about_me_photo">
+						<div>Upload photo</div>
+					</div>
+					
+					</div>
 					<div class="btn_accept_about_me">
 						<div class="btn_accept">Accept</div>
 						<div class="btn_cancel">Cancel</div>
@@ -115,16 +124,17 @@
 				</div>	</div>
 			<div class="line"></div>
 			<div class="work">
+				<a name="work"></a>
 				<div class="header_work">Work Experience</div>
 				<div class="red_line_about_me"></div>
-			<div class="firstBlocks">
+				<div class="firstBlocks">
 				<div class="rightSection">
 					<img src="../image/rightBlock.png" alt="">
 					<div class="aboutWorkRight">
-						<textarea maxlength="24"  class="position" placeholder="Enter your position"></textarea>
-						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="posFirst" maxlength="24"  class="position" placeholder="Enter your position"></textarea>
+						<textarea id="orgFirst" maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div id="resultPosFirts" class="resultPosition"></div>
+						<div id="resultOrgFirst" class="resultOrganization"></div>
 					</div>
 				</div>
 				<div class="ellipse">
@@ -136,10 +146,10 @@
 				<div class="leftSection">
 					<img src="../image/leftBlock.png" alt="">
 					<div class="aboutWorkLeft">
-						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
-						<textarea  maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="posSecond" maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea id="orgSecond" maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div id="resultPosSecond" class="resultPosition"></div>
+						<div id="resultOrgSecond" class="resultOrganization"></div>
 					</div>
 				</div>
 			</div>
@@ -148,10 +158,10 @@
 				<div class="rightSection2">
 					<img src="../image/rightBlock.png" alt="">
 					<div class="aboutWorkRight">
-						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
-						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="posThird" maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea id="orgThird" maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
+						<div id="resultPosThird"  class="resultPosition"></div>
+						<div id="resultOrgThird" class="resultOrganization"></div>
 					</div>
 				</div>
 				<div class="ellipse2">
@@ -163,18 +173,18 @@
 				<div class="leftSection2">
 					<img src="../image/leftBlock.png" alt="">
 					<div class="aboutWorkLeft">
-						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
-						<textarea  maxlength="25"class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="posFourth" maxlength="24" class="position" placeholder="Enter your position"></textarea>
+						<textarea id="orgFourth"  maxlength="25"class="organization" placeholder="Enter organization name"></textarea>
+						<div id="resultPosFourth" class="resultPosition"></div>
+						<div id="resultOrgFourth" class="resultOrganization"></div>
 					</div>
 				</div>
 					<div>
-						<div class="btn_acception_work">
+						<div class="btn_for_accept_work">
 							<div class="btn_accept_work">Accept</div>
 							<div class="btn_cancel_work">Cancel</div>
 						</div>
-						<div id="a" class="btn_edit_about_work">
+						<div class="btn_edit_work">
 							<div>Edit</div>
 						</div>
 					</div>
@@ -185,16 +195,18 @@
 
 			</div>
 			<div class="work">
+				<a name="Education"></a>
 				<div class="header_work">Education</div>
+
 				<div class="red_line_about_me"></div>
 			<div class="firstBlocks">
 				<div class="rightSection">
 					<img src="../image/rightBlock.png" alt="">
 					<div class="aboutWorkRight">
-						<textarea maxlength="24"  class="position" placeholder="Enter your position"></textarea>
-						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="specFirst" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
+						<textarea id="institFirst" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
+						<div id="resSpecFirst" class="resSpec"></div>
+						<div id="resInstitFirst" class="resInstit"></div>
 					</div>
 				</div>
 				<div class="ellipse">
@@ -206,10 +218,10 @@
 				<div class="leftSection">
 					<img src="../image/leftBlock.png" alt="">
 					<div class="aboutWorkLeft">
-						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
-						<textarea  maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="specSecond" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
+						<textarea id="institSecond" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
+						<div id="resSpecSecond" class="resSpec"></div>
+						<div id="resInstitSecond" class="resInstit"></div>
 					</div>
 				</div>
 			</div>
@@ -218,10 +230,10 @@
 				<div class="rightSection2">
 					<img src="../image/rightBlock.png" alt="">
 					<div class="aboutWorkRight">
-						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
-						<textarea maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="specThird" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
+						<textarea id="institThird" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
+						<div id="resSpecThird" class="resSpec"></div>
+						<div id="resInstitThird" class="resInstit"></div>
 					</div>
 				</div>
 				<div class="ellipse2">
@@ -233,61 +245,101 @@
 				<div class="leftSection2">
 					<img src="../image/leftBlock.png" alt="">
 					<div class="aboutWorkLeft">
-						<textarea maxlength="24" class="position" placeholder="Enter your position"></textarea>
-						<textarea  maxlength="25"class="organization" placeholder="Enter organization name"></textarea>
-						<div class="resultPosition"></div>
-						<div class="resultOrganization"></div>
+						<textarea id="specFourth" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
+						<textarea id="institFourth" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
+						<div id="resSpecFourth" class="resSpec"></div>
+						<div id="resInstitFourth" class="resInstit"></div>
 					</div>
 				</div>
 					<div>
-						<div class="btn_acception_work">
-							<div class="btn_accept_work">Accept</div>
-							<div class="btn_cancel_work">Cancel</div>
+						<div class="btn_acception_education">
+							<div class="btn_accept_education">Accept</div>
+							<div class="btn_cancel_education">Cancel</div>
 						</div>
-						<div id="a" class="btn_edit_about_work">
+						<div id="a" class="btn_edit_education">
 							<div>Edit</div>
 						</div>
 					</div>
 			</div>
 			</div>
+			<a name="skills"></a>
 			<div class="skills">
 				<div class="header_skills">My Skills</div>
 				<div class="red_line_about_me"></div>
 				<div class="skillsBlock">
 					<div class="ueBlock">
-						<div class="userExperience"></div>
-						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
-						<label for="number" class="number"></label>
+							<div class="userExperience1"></div>
+							<textarea class="nameExperience1" placeholder="Enter your skill"></textarea> 
+							<input name="flevel" id="number1" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate1(value)"> 
+							<output id="firstRange" for="number1" class="number" name="level">50</output>
+							<script>
+							function outputUpdate1(vol) { 
+							  document.querySelector('#firstRange').value = vol;	 
+							}
+							</script>
 					</div>
+
 					<div class="ueBlock2">
-						<div class="userExperience"></div>
-						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
-						<label for="number" class="number"></label>
+						<div class="userExperience2"></div>
+						<textarea class="nameExperience2" placeholder="Enter your skill"></textarea> 
+						<input  id="number2" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate2(value)"> 
+							<output id="secondRange" for="number2" class="number" name="level">50</output>
+							<script>
+							function outputUpdate2(vol) { 
+							  document.querySelector('#secondRange').value = vol;	 
+							}
+							</script>
 					</div>
 					<div class="ueBlock3">
-						<div class="userExperience"></div>
-						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
-						<label for="number" class="number"></label>
+						<div class="userExperience3"></div>
+						<textarea class="nameExperience3" placeholder="Enter your skill"></textarea> 
+							<input  id="number3" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate3(value)"> 
+							<output id="thirdRange" for="number3" class="number" name="level">50</output>
+							<script>
+							function outputUpdate3(vol) { 
+							  document.querySelector('#thirdRange').value = vol;	 
+							}
+							</script>
 					</div>
 					<div class="ueBlock4">
-						<div class="userExperience"></div>
-						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
-						<label for="number" class="number"></label>
+						<div class="userExperience4"></div>
+						<textarea class="nameExperience4" placeholder="Enter your skill"></textarea> 
+						<textarea class="nameExperience4"></textarea> 
+						<input  id="number4" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate4(value)"> 
+							<output id="fourthRange" for="number4" class="number" name="level">50</output>
+							<script>
+							function outputUpdate4(vol) { 
+							  document.querySelector('#fourthRange').value = vol;	 
+							}
+							</script>
 					</div>
 					<div class="ueBlock5">
-						<div class="userExperience"></div>
-						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
-						<label for="number" class="number"></label>
+						<div class="userExperience5"></div>
+						<textarea class="nameExperience5" placeholder="Enter your skill"></textarea> 
+						<input  id="number5" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate5(value)"> 
+							<output id="fifthRange" for="number5" class="number" name="level">50</output>
+							<script>
+							function outputUpdate5(vol) { 
+							  document.querySelector('#fifthRange').value = vol;	 
+							}
+							</script>
 					</div>
 					<div class="ueBlock6">
-						<div class="userExperience"></div>
-						<input id="number" class="range" type="range" min="0" max="100" step="1" value="50"> 
-						<label for="number" class="number"></label>
+						<div class="userExperience6"></div>
+						<textarea class="nameExperience6" placeholder="Enter your skill"></textarea> 
+						<input  id="number6" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate6(value)"> 
+							<output id="sixthRange" for="number6" class="number" name="level">50</output>
+							<script>
+							function outputUpdate6(vol) { 
+							  document.querySelector('#sixthRange').value = vol;	 
+							}
+							</script>
 					</div>
 				</div>
 			</div>
-
+				
 				<div class="about">
+					<a name="contacts"></a>
 						<div class="leave_msg">
 							<div>Leave a Message</div>
 							<form id="msg_form" class="leave_msg_form" action="php/mail.php"  method="post" >
