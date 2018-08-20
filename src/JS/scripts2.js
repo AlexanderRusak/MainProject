@@ -10,10 +10,22 @@
 	 	});
 	 	$('.btn_accept').click(function(){
 	 		var aboutMeText=$('.edit_textarea_about_me').val();
+	 		
 	 		$('.btn_edit_about_me').css('display','block');
 	 		$('.btn_accept_about_me').css('display','none');
 	 		$('.edit_textarea_about_me').css('display','none');
 	 		$('.edition_about_me').css('display','block').html(aboutMeText);
+	 		alert(aboutMeText);
+	 		$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{aboutMeText:aboutMeText},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
 
 	 	})
 	 	$('.btn_cancel').click(function(){
@@ -52,6 +64,16 @@
 	 		$('.phone_personal_data').css('display','block').html(phone);
 	 		$('.personal_data ul li textarea').css('display','none');
 	 		$('.personal_data ul li div').css('display','block');
+	 		$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{name:name,age:age,email:email,web:web,addres:addres,phone:phone},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
 	 	})
 	 	$('.btn_cancel_pd').click(function(){
 	 		$('.btn_edit_about_me_pd').css('display','block');

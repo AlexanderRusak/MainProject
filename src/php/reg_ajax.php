@@ -26,7 +26,8 @@ if($row_email==0&&$row_login==0){
 function queryReg($l,$e,$p,$con){
 		$pass=md5($p);
 		$act=md5($e.time());
-		mysqli_query( $con,"INSERT INTO users(`login`, `email`, `password`, `activation`) VALUES('{$l}','{$e}','{$pass}','{$act}')");echo "success";
+		mysqli_query( $con,"INSERT INTO users(`login`, `email`, `password`, `activation`) VALUES('{$l}','{$e}','{$pass}','{$act}')");
+		echo "success";
 		$_SESSION['name']=$l;
 }
 ?>

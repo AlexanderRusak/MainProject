@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	include 'db.php';
+	$s_name=$_SESSION['name'];
 	if (isset($_POST['logout'])) {
 		unset($_SESSION['name']);
 		session_destroy();
@@ -10,9 +12,31 @@
 		header('Location: ../index.php');
          exit;
 	}
+	$id=mysqli_query($connection,"SELECT uid FROM `users` WHERE `login`='$s_name'");
+	$row_id=mysqli_fetch_assoc($id);
+	$uid=$row_id['uid'];
+
+	$chk_row=mysqli_query($connection,"SELECT idInfo FROM `mainInfo` WHERE `idInfo`='$uid'");
+	$row=mysqli_num_rows($chk_row);
 	
-	
-	
+	if ($row==0) {
+		$create_id=mysqli_query($connection,"INSERT INTO mainInfo (`idInfo`) VALUES ($uid) ");
+	}
+	if (isset($_POST['aboutMeText'])) {
+		$aboutMeText=$_POST['aboutMeText'];
+		$updateAboutMe=mysqli_query($connection,"UPDATE `mainInfo` SET `aboutMe` = '$aboutMeText' WHERE `idInfo` =$uid");
+		echo "ok";
+	}
+	if (isset($_POST['name'])||isset($_POST['age'])||isset($_POST['email'])||isset($_POST['web'])||isset($_POST['addres'])||isset($_POST['phone'])) {
+		$mainName=$_POST['name'];
+		$mainAge=$_POST['age'];
+		$mainEmail=$_POST['email'];
+		$mainWeb=$_POST['web'];
+		$mainAddres=$_POST['addres'];
+		$mainPhone=$_POST['phone'];
+		$updateAboutMe=mysqli_query($connection,"UPDATE `mainInfo` SET `Name` = '$mainName',`Age` = '$mainAge',`Email` = '$mainEmail',`Web` = '$mainWeb',`Addres` = '$mainAddres',`Phone` = '$mainPhone' WHERE `idInfo` =$uid");
+		echo "ok";
+	}
 	
 ?>
 
