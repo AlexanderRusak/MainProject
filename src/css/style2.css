@@ -824,7 +824,7 @@
 .skillsBlock div input {
   -webkit-appearance: none;
   background-color: #bbbbbd;
-  height: 6px;
+  height: 3px;
   outline: none; }
 
 .skillsBlock div input::-webkit-slider-thumb {
@@ -983,3 +983,8 @@ output {
 
 .logout input:hover {
   background-color: #fb6470; }
+
+.uplPhoto {
+  top: 372px;
+  position: relative;
+  float: right; }

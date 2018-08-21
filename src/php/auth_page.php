@@ -18,10 +18,29 @@
 
 	$chk_row=mysqli_query($connection,"SELECT idInfo FROM `mainInfo` WHERE `idInfo`='$uid'");
 	$row=mysqli_num_rows($chk_row);
-	
 	if ($row==0) {
 		$create_id=mysqli_query($connection,"INSERT INTO mainInfo (`idInfo`) VALUES ($uid) ");
 	}
+
+	//////==1
+	$chk_row_work=mysqli_query($connection,"SELECT idWork FROM `workExp` WHERE `idWork`='$uid'");
+	$row=mysqli_num_rows($chk_row_work);
+	if ($row==0) {
+		$create_id_work=mysqli_query($connection,"INSERT INTO workExp (`idWork`) VALUES ($uid) ");
+	}
+	///////==1
+	$chk_row_education=mysqli_query($connection,"SELECT idEducation FROM `Education` WHERE `idEducation`='$uid'");
+	$row=mysqli_num_rows($chk_row_education);
+	if ($row==0) {
+		$create_id_education=mysqli_query($connection,"INSERT INTO Education (`idEducation`) VALUES ($uid) ");
+	}
+	/////==1
+	$chk_row_skills=mysqli_query($connection,"SELECT idSkills FROM `skills` WHERE `idSkills`='$uid'");
+	$row=mysqli_num_rows($chk_row_skills);
+	if ($row==0) {
+		$create_id_skill=mysqli_query($connection,"INSERT INTO skills (`idSkills`) VALUES ($uid) ");
+	}
+	///////==1
 	if (isset($_POST['aboutMeText'])) {
 		$aboutMeText=$_POST['aboutMeText'];
 		$updateAboutMe=mysqli_query($connection,"UPDATE `mainInfo` SET `aboutMe` = '$aboutMeText' WHERE `idInfo` =$uid");
@@ -37,6 +56,137 @@
 		$updateAboutMe=mysqli_query($connection,"UPDATE `mainInfo` SET `Name` = '$mainName',`Age` = '$mainAge',`Email` = '$mainEmail',`Web` = '$mainWeb',`Addres` = '$mainAddres',`Phone` = '$mainPhone' WHERE `idInfo` =$uid");
 		echo "ok";
 	}
+	if (isset($_POST['firstPosition'])||isset($_POST['firstOrganization'])||isset($_POST['secondPosition'])||isset($_POST['secondOrganization'])||isset($_POST['thirdPosition'])||isset($_POST['thirdOrganization'])||isset($_POST['fourthPosition'])||isset($_POST['fourthOrganization'])) {
+		$firstPosition=$_POST['firstPosition'];
+		$firstOrganization=$_POST['firstOrganization'];
+		$secondPosition=$_POST['secondPosition'];
+		$secondOrganization=$_POST['secondOrganization'];
+		$thirdPosition=$_POST['thirdPosition'];
+		$thirdOrganization=$_POST['thirdOrganization'];
+		$fourthPosition=$_POST['fourthPosition'];
+		$fourthOrganization=$_POST['fourthOrganization'];
+		$updateWorkExperience=mysqli_query($connection,"UPDATE `workExp` SET 
+			`positionFirst` = '$firstPosition',
+			`organizationFirst` = '$firstOrganization',
+			`positionSecond` = '$secondPosition',
+			`organizationSecond` = '$secondOrganization',
+			`positionThird` = '$thirdPosition',
+			`organizationThird` = '$thirdOrganization',
+			`positionFourth` = '$fourthPosition',
+			`organizationFourth` = '$fourthOrganization
+			' WHERE `idWork` =$uid");
+		echo "ok";
+	}
+	if (isset($_POST['firstSpec'])||isset($_POST['firstInstitution'])||isset($_POST['secondSpec'])||isset($_POST['secondInstitution'])||isset($_POST['thirdSpec'])||isset($_POST['thirdInstitution'])||isset($_POST['fourthSpec'])||isset($_POST['fourthInstitution'])) {
+		$sFirst=$_POST['firstSpec'];
+		$iFirst=$_POST['firstInstitution'];
+		$sSecond=$_POST['secondSpec'];
+		$iSecond=$_POST['secondInstitution'];
+		$sThird=$_POST['thirdSpec'];
+		$iThird=$_POST['thirdInstitution'];
+		$sFourth=$_POST['fourthSpec'];
+		$iFourth=$_POST['fourthInstitution'];
+		$updateEducation=mysqli_query($connection,"UPDATE `Education` SET 
+			`specialityFirst` = '$sFirst',
+			`institutionFirst` = '$iFirst',
+			`specialitySecond` = '$sSecond',
+			`institutionSecond` = '$iSecond',
+			`specialityThird` = '$sThird',
+			`institutionThird` = '$iThird',
+			`specialityFourth` = '$sFourth',
+			`institutionFourth` = '$iFourth
+			' WHERE `idEducation` =$uid");
+		echo "ok";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if (isset($_POST['nameSkillFirst'])) {
+		$nSkill=$_POST['nameSkillFirst'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`nameSkillFirst` = '$nSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['valueSkillFirst'])) {
+		$valSkill=$_POST['valueSkillFirst'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`valueSkillFirst` = '$valSkill'
+			 WHERE `idSkills` =$uid");
+	}
+
+	if (isset($_POST['nameSkillSecond'])) {
+		$nSkill=$_POST['nameSkillSecond'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`nameSkillSecond` = '$nSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['valueSkillSecond'])) {
+		$valSkill=$_POST['valueSkillSecond'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`valueSkillSecond` = '$valSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['nameSkillThird'])) {
+		$nSkill=$_POST['nameSkillThird'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`nameSkillThird` = '$nSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['valueSkillThird'])) {
+		$valSkill=$_POST['valueSkillThird'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`valueSkillThird` = '$valSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['nameSkillFourth'])) {
+		$nSkill=$_POST['nameSkillFourth'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`nameSkillFourth` = '$nSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['valueSkillFourth'])) {
+		$valSkill=$_POST['valueSkillFourth'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`valueSkillFourth` = '$valSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['nameSkillFifth'])) {
+		$nSkill=$_POST['nameSkillFifth'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`nameSkillFifth` = '$nSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['valueSkillFifth'])) {
+		$valSkill=$_POST['valueSkillFifth'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`valueSkillFifth` = '$valSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['nameSkillSixth'])) {
+		$nSkill=$_POST['nameSkillSixth'];
+		$updateSkill=mysqli_query($connection,"UPDATE `skills` SET 
+			`nameSkillSixth` = '$nSkill'
+			 WHERE `idSkills` =$uid");
+	}
+	if (isset($_POST['valueSkillSixth'])) {
+		$valSkill=$_POST['valueSkillSixth'];
+		$valueSkillSixth=mysqli_query($connection,"UPDATE `skills` SET 
+			`valueSkillFifth` = '$valSkill'
+			 WHERE `idSkills` =$uid");
+	}
+
+		echo $FILES['img']['tmp_name'];
+
 	
 ?>
 
@@ -93,10 +243,13 @@
 				</div>
 				<div class="sbmt_about_me">
 					<div class="about_me_photo">
-						<div class="btn_about_me_photo">
-						<div>Upload photo</div>
-					</div>
-					
+						<div class="imagePhoto">
+							
+						</div>
+						<form type="file" enctype="multipart/form-data" method="post" action="auth_page.php" class="uplPhoto">
+							<input type="file" name="img">
+							<a href="#" class="submit button">Upload photo</a>
+						</form>
 					</div>
 					<div class="btn_accept_about_me">
 						<div class="btn_accept">Accept</div>

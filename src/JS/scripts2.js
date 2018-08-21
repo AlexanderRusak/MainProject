@@ -112,6 +112,24 @@
 	 		$('.organization').css('display','none');
 	 		$('.resultPosition').css('display','block');
 	 		$('.resultOrganization').css('display','block');
+	 		$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{firstPosition:firstPosition,
+	 				  firstOrganization:firstOrganization,
+	 					secondPosition:secondPosition,
+	 					secondOrganization:secondOrganization,
+	 						thirdPosition:thirdPosition,
+							thirdOrganization:thirdOrganization,
+	 							fourthPosition:fourthPosition,
+	 							fourthOrganization:fourthOrganization
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
 	 	})
 	 	$('.btn_cancel_work').click(function(){
 	 		$('.btn_for_accept_work div').css('display','none');
@@ -134,6 +152,7 @@
 	 		$('#institFourth').css('display','block');
 	 		$('.resSpec').css('display','none');
 	 		$('.resInstit').css('display','none');
+	 		
 	 	})
 	 	$('.btn_accept_education').click(function(){
 	 		var firstSpec=$('#specFirst').val();
@@ -162,7 +181,26 @@
 	 		$('#resInstitFourth').css('display','block').html(fourthInstitution);
 	 		$('.btn_acception_education div').css('display','none');
 	 		$('.btn_edit_education').css('display','block');
-	 	})
+	 		alert("ok");
+	 		$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{firstSpec:firstSpec,
+	 				  firstInstitution:firstInstitution,
+	 					secondSpec:secondSpec,
+	 					secondInstitution:secondInstitution,
+	 						thirdSpec:thirdSpec,
+							thirdInstitution:thirdInstitution,
+	 							fourthSpec:fourthSpec,
+	 							fourthInstitution:fourthInstitution
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+	 	});
 	 	$('.btn_cancel_education').click(function(){
 	 		$('.btn_acception_education div').css('display','none');
 	 		$('.btn_edit_education').css('display','block');
@@ -255,7 +293,275 @@
 		       $('.userExperience6').html(skill_sixth).css('display','block').css('background-color','#1d1d24');
 		    }
 		})
+		var files;
+	 	$('.uplPhoto input[type=file]').change(function(){
+	 		files=this.files;
+	 	})
+	 	$('.submit.button').click(function( event ){
+    		event.stopPropagation(); // Остановка происходящего
+    		event.preventDefault();  // Полная остановка происходящего
+    		 var data = new FormData();
+    		 $.each( files, function( key, value ){
+        	 data.append( key, value );
+    		});
+    		 $.ajax({
+	        url: './submit.php?uploadfiles',
+	        type: 'POST',
+	        data: data,
+	        cache: false,
+	        dataType: 'json',
+	        processData: false, // Не обрабатываем файлы (Don't process the files)
+	        contentType: false, // Так jQuery скажет серверу что это строковой запрос
+	        success: function(data){
+	 			alert("ok");
+	            $('.photo').css('background-image',data);
+	        },
+	        error: function( jqXHR, textStatus, errorThrown ){
+	            console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+	        }
+	    	});
+	 
+		});
 
+
+
+
+
+
+
+
+
+
+		$('.nameExperience1').keypress(function(e) {
+		    if(e.which == 13) {
+		        var nameSkillFirst=$('.nameExperience1').val();
+		       
+		       $.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{nameSkillFirst:nameSkillFirst,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+		    }
+		});
+		$('#number1').mouseup(function(){
+			var valueSkillFirst;
+			setTimeout(function(){
+				valueSkill=$('#firstRange').val();
+				$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{valueSkillFirst:valueSkillFirst,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+			},1000);
+			
+
+		})
+
+		$('.nameExperience2').keypress(function(e) {
+		    if(e.which == 13) {
+		        var nameSkillSecond=$('.nameExperience2').val();
+		       
+		       $.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{nameSkillSecond:nameSkillSecond,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+		    }
+		});
+		$('#number2').mouseup(function(){
+			var valueSkillSecond;
+			setTimeout(function(){
+				valueSkillSecond=$('#secondRange').val();
+				$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{valueSkillSecond:valueSkillSecond,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+			},1000);
+			
+
+		})
+		
+		$('.nameExperience3').keypress(function(e) {
+		    if(e.which == 13) {
+		        var nameSkillThird=$('.nameExperience3').val();
+		       
+		       $.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{nameSkillThird:nameSkillThird,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+		    }
+		});
+		$('#number3').mouseup(function(){
+			var valueSkillThird;
+			setTimeout(function(){
+				valueSkillThird=$('#thirdRange').val();
+				$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{valueSkillThird:valueSkillThird,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+			},1000);
+			
+
+		})
+			$('.nameExperience4').keypress(function(e) {
+		    if(e.which == 13) {
+		        var nameSkillFourth=$('.nameExperience4').val();
+		       
+		       $.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{nameSkillFourth:nameSkillFourth,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+		    }
+		});
+		$('#number4').mouseup(function(){
+			var valueSkillFourth;
+			setTimeout(function(){
+				valueSkillFourth=$('#fourthRange').val();
+				$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{valueSkillFourth:valueSkillFourth,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+			},1000);
+			
+
+		})
+
+		$('.nameExperience5').keypress(function(e) {
+		    if(e.which == 13) {
+		        var nameSkillFifth=$('.nameExperience5').val();
+		       
+		       $.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{nameSkillFifth:nameSkillFifth,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+		    }
+		});
+		$('#number5').mouseup(function(){
+			var valueSkillFifth;
+			setTimeout(function(){
+				valueSkillFifth=$('#fifthRange').val();
+				$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{valueSkillFifth:valueSkillFifth,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+			},1000);
+			
+
+		})
+
+			$('.nameExperience6').keypress(function(e) {
+		    if(e.which == 13) {
+		        var nameSkillSixth=$('.nameExperience6').val();
+		       
+		       $.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{nameSkillSixth:nameSkillSixth,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+		    }
+		});
+		$('#number6').mouseup(function(){
+			var valueSkillSixth;
+			setTimeout(function(){
+				valueSkillSixth=$('#sixthRange').val();
+				$.ajax({
+	 			url:'../php/auth_page.php',
+	 			type:'POST',
+	 			data:{valueSkillSixth:valueSkillSixth,
+
+	 				},
+	 			success:function(data){
+	 				if (data=="ok") {
+	 					alert('ok');
+	 				}
+	 			}
+	 		})
+			},1000);
+			
+
+		})
 	});
-	
-
