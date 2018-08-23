@@ -353,7 +353,7 @@
 		$('#number1').mouseup(function(){
 			var valueSkillFirst;
 			setTimeout(function(){
-				valueSkill=$('#firstRange').val();
+				valueSkillFirst=$('#firstRange').val();
 				$.ajax({
 	 			url:'../php/auth_page.php',
 	 			type:'POST',
@@ -564,4 +564,43 @@
 			
 
 		})
+							
+							$('#download').click(()=> {
+							setTimeout(function(){
+										html2canvas(document.body,{
+										onrendered:function(canvas){
+										var img=canvas.toDataURL("image/png");
+										var pdf = new jsPDF();
+										pdf.addImage(img,'JPEG',-115,-10);		
+								        pdf.save('web.pdf');
+								   		location.reload();
+									
+											}
+										})
+												
+									
+									
+								},1000)
+							$('.left-layer').css('display','none');
+							$('.btn_edit_about_me_pd').css('display','none');
+							$('.btn_edit_education').css('display','none');
+							$('.btn_edit_work').css('display','none');
+							$('.btn_edit_about_me').css('display','none')
+							$('.top-layer').css('display','none');
+							$('.about_me').css('margin-top','100px');
+							$('.work').css('margin-top','0px');
+							$('.line').css('display','none');
+							$('.skills').css('margin-top','0px');
+							$('.container').css('height','0px');
+							$('.container').css('margin-left','70px');
+							$('.container').css('bottom','100px');
+							$('.container').css(' background-color','fff');
+							 
+							})
+		$('#image').change(function(){
+			$('#load').html("<img src='../image/loader.gif'/>");
+			$('#form').ajaxForm({
+				target:"#load"
+			}).submit();
+		})					
 	});

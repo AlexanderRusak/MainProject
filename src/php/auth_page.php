@@ -12,35 +12,94 @@
 		header('Location: ../index.php');
          exit;
 	}
+
+	
+
 	$id=mysqli_query($connection,"SELECT uid FROM `users` WHERE `login`='$s_name'");
 	$row_id=mysqli_fetch_assoc($id);
 	$uid=$row_id['uid'];
+
+		if (isset($_POST) AND $_SERVER['REQUEST_METHOD'] == "POST") {
+			$formats= array("JPG","png");
+			$format=@end(explode(".", $_FILES['image']['name']));
+			if (in_array($format, $formats)) {
+				if (is_uploaded_file($_FILES['image']['tmp_name'] )) {
+					$dir ="../uploads/".$_FILES['image']['name']."_".rand(0,9999)."_".time().".".$format;/////
+					if (move_uploaded_file($_FILES['image']['tmp_name'],$dir)) {
+
+						$upl_photo=mysqli_query($connection,"UPDATE `mainInfo` SET `photoUrl` = '$dir' WHERE `idInfo` = '$uid' ");
+						header( "refresh:1;" );
+
+					}
+					
+				}
+			}
+			else{
+				//echo "incorrect format";
+			}
+			
+		}
+	
+	
 
 	$chk_row=mysqli_query($connection,"SELECT idInfo FROM `mainInfo` WHERE `idInfo`='$uid'");
 	$row=mysqli_num_rows($chk_row);
 	if ($row==0) {
 		$create_id=mysqli_query($connection,"INSERT INTO mainInfo (`idInfo`) VALUES ($uid) ");
-	}
-
-	//////==1
-	$chk_row_work=mysqli_query($connection,"SELECT idWork FROM `workExp` WHERE `idWork`='$uid'");
-	$row=mysqli_num_rows($chk_row_work);
-	if ($row==0) {
 		$create_id_work=mysqli_query($connection,"INSERT INTO workExp (`idWork`) VALUES ($uid) ");
-	}
-	///////==1
-	$chk_row_education=mysqli_query($connection,"SELECT idEducation FROM `Education` WHERE `idEducation`='$uid'");
-	$row=mysqli_num_rows($chk_row_education);
-	if ($row==0) {
 		$create_id_education=mysqli_query($connection,"INSERT INTO Education (`idEducation`) VALUES ($uid) ");
-	}
-	/////==1
-	$chk_row_skills=mysqli_query($connection,"SELECT idSkills FROM `skills` WHERE `idSkills`='$uid'");
-	$row=mysqli_num_rows($chk_row_skills);
-	if ($row==0) {
 		$create_id_skill=mysqli_query($connection,"INSERT INTO skills (`idSkills`) VALUES ($uid) ");
 	}
-	///////==1
+	if ($row==1) {
+	$aboutInfo=mysqli_query($connection,"SELECT `idInfo`, `aboutMe`, `Name`, `Age`, `Email`, `Web`, `Addres`, `Phone`, `photoUrl` FROM `mainInfo` WHERE `idInfo`='$uid' ");
+	$aboutInfo=mysqli_fetch_assoc($aboutInfo);
+		$aboutMe=$aboutInfo['aboutMe'];
+		$Age=$aboutInfo['Age'];
+		$Name=$aboutInfo['Name'];
+		$Email=$aboutInfo['Email'];
+		$Web=$aboutInfo['Web'];
+		$Addres=$aboutInfo['Addres'];
+		$Phone=$aboutInfo['Phone'];
+		$Photo=$aboutInfo['photoUrl'];
+
+	$aboutEducation=mysqli_query($connection,"SELECT `idEducation`, `specialityFirst`, `institutionFirst`, `specialitySecond`, `institutionSecond`, `specialityThird`, `institutionThird`, `specialityFourth`, `institutionFourth` FROM `Education` WHERE `idEducation`='$uid'");
+	$aboutEducation=mysqli_fetch_assoc($aboutEducation);
+		$specialityFirst=$aboutEducation['specialityFirst'];
+		$institutionFirst=$aboutEducation['institutionFirst'];
+		$specialitySecond=$aboutEducation['specialitySecond'];
+		$institutionSecond=$aboutEducation['institutionSecond'];
+		$specialityThird=$aboutEducation['specialityThird'];
+		$institutionThird=$aboutEducation['institutionThird'];
+		$specialityFourth=$aboutEducation['specialityFourth'];
+		$institutionFourth=$aboutEducation['institutionFourth'];
+
+	$aboutWork=mysqli_query($connection,"SELECT `idWork`, `positionFirst`, `organizationFirst`, `positionSecond`, `organizationSecond`, `positionThird`, `organizationThird`, `positionFourth`, `organizationFourth` FROM `workExp` WHERE `idWork`='$uid'");
+	$aboutWork=mysqli_fetch_assoc($aboutWork);
+		$positionFirst=$aboutWork['positionFirst'];
+		$organizationFirst=$aboutWork['organizationFirst'];
+		$positionSecond=$aboutWork['positionSecond'];
+		$organizationSecond=$aboutWork['organizationSecond'];
+		$positionThird=$aboutWork['positionThird'];
+		$organizationThird=$aboutWork['organizationThird'];
+		$positionFourth=$aboutWork['positionFourth'];
+		$organizationFourth=$aboutWork['organizationFourth'];
+
+	$aboutSkills=mysqli_query($connection,"SELECT `idSkills`, `nameSkillFirst`, `valueSkillFirst`, `nameSkillSecond`, `valueSkillSecond`, `nameSkillThird`, `valueSkillThird`, `nameSkillFourth`, `valueSkillFourth`, `nameSkillFifth`, `valueSkillFifth`, `nameSkillSixth`, `valueSkillSixth` FROM `skills` WHERE `idSkills`='$uid'");
+	$aboutSkills=mysqli_fetch_assoc($aboutSkills);
+		$nameSkillFirst=$aboutSkills['nameSkillFirst'];
+		$valueSkillFirst=$aboutSkills['valueSkillFirst'];
+		$nameSkillSecond=$aboutSkills['nameSkillSecond'];
+		$valueSkillSecond=$aboutSkills['valueSkillSecond'];
+		$nameSkillThird=$aboutSkills['nameSkillThird'];
+		$valueSkillThird=$aboutSkills['valueSkillThird'];
+		$nameSkillFourth=$aboutSkills['nameSkillFourth'];
+		$valueSkillFourth=$aboutSkills['valueSkillFourth'];
+		$nameSkillFifth=$aboutSkills['nameSkillFifth'];
+		$valueSkillFifth=$aboutSkills['valueSkillFifth'];
+		$nameSkillSixth=$aboutSkills['nameSkillSixth'];
+		$valueSkillSixth=$aboutSkills['valueSkillSixth'];
+	}
+	
 	if (isset($_POST['aboutMeText'])) {
 		$aboutMeText=$_POST['aboutMeText'];
 		$updateAboutMe=mysqli_query($connection,"UPDATE `mainInfo` SET `aboutMe` = '$aboutMeText' WHERE `idInfo` =$uid");
@@ -181,11 +240,11 @@
 	if (isset($_POST['valueSkillSixth'])) {
 		$valSkill=$_POST['valueSkillSixth'];
 		$valueSkillSixth=mysqli_query($connection,"UPDATE `skills` SET 
-			`valueSkillFifth` = '$valSkill'
+			`valueSkillSixth` = '$valSkill'
 			 WHERE `idSkills` =$uid");
 	}
 
-		echo $FILES['img']['tmp_name'];
+		
 
 	
 ?>
@@ -199,16 +258,21 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+		<script src="http://malsup.github.io/min/jquery.form.min.js"></script>
+		<script src="../JS/jspdf.debug.js"></script>
+		<script src="../JS/jspdf.min.js"></script>
 		<script type="text/javascript" src="../JS/scripts2.js" ></script>
 		<link rel="stylesheet" type="text/css" href="../css/style2.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/normalize.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
-		<div class="container">
+		<div id="container" class="container">
 			<div class="fix">
 				<div class="left-layer">
-				<div class="photo"></div>
+				
 				<nav class="left-menu">
 					<ul>
 						<a href="#"><li>Home</li></a>
@@ -216,7 +280,7 @@
 						<a href="#work"><li>Work Experience</li></a>
 						<a href="#Education"><li>Education</li></a>
 						<a href="#skills"><li>Skills</li></a>
-						<a href="#contacts"><li>Contacts</li></a>
+						<a href="#" id="download"><li>Download</li></a>
 					</ul>
 				</nav>
 			</div>
@@ -225,8 +289,7 @@
 
 
 			<div class="top-layer">
-				<div class="main-text">Lets Make Something Great</div>
-				<div class="under-main-text"></div>
+
 				<form class="logout" action="auth_page.php" method="post">
 			<input type="submit" name="logout" value="logout"/>	
 				</form>
@@ -238,18 +301,19 @@
 				<div class="red_line_about_me"></div>
 				<div class="edit_about_me">
 					<textarea class="edit_textarea_about_me"></textarea>
-					<div class="edition_about_me"></div>
+					<div class="edition_about_me"><?php echo $aboutMe?></div>
 
 				</div>
 				<div class="sbmt_about_me">
 					<div class="about_me_photo">
-						<div class="imagePhoto">
+						<img class="imagePhoto" src='<?php echo $Photo; ?>'>
 							
-						</div>
-						<form type="file" enctype="multipart/form-data" method="post" action="auth_page.php" class="uplPhoto">
-							<input type="file" name="img">
-							<a href="#" class="submit button">Upload photo</a>
-						</form>
+						</img>
+							<form class="url" enctype="multipart/form-data" action="auth_page.php" method="post" id="form">
+							Choose photo<input type="file" name="image"  id="image">
+							</form>
+							<div id='load'></div>
+							
 					</div>
 					<div class="btn_accept_about_me">
 						<div class="btn_accept">Accept</div>
@@ -263,29 +327,29 @@
 					<ul>
 						<li>Name :
 							<textarea id='pd_name'class="pd_textarea"></textarea>
-							<div class="name_personal_data"></div>
+							<div class="name_personal_data"><?php echo $Name?></div>
 						</li>
 						<li>Age :
 							<textarea id='pd_age' class="pd_textarea"></textarea>
-							<div class="age_personal_data"></div>
+							<div class="age_personal_data"><?php echo $Age?></div>
 						</li>
 						<li>Email :
 							<textarea id='pd_email' class="pd_textarea"></textarea>
-							<div class="email_personal_data"></div>
+							<div class="email_personal_data"><?php echo $Email?></div>
 						</li>
 						<li>Web :
 							<textarea id='pd_web' class="pd_textarea"></textarea>
-							<div class="web_personal_data"></div>
+							<div class="web_personal_data"><?php echo $Web?></div>
 						</li>
 						<li>
 							Addres :
 							<textarea id='pd_addres' class="pd_textarea"></textarea>
-							<div class="addres_personal_data"></div>
+							<div class="addres_personal_data"><?php echo $Addres?></div>
 						</li>
 						<li>
 							Phone :
 							<textarea id='pd_phone' class="pd_textarea"></textarea>
-							<div class="phone_personal_data"></div>
+							<div class="phone_personal_data"><?php echo $Phone?></div>
 						</li>
 					</ul>
 					<div class="sbmt_personal data">
@@ -310,8 +374,8 @@
 					<div class="aboutWorkRight">
 						<textarea id="posFirst" maxlength="24"  class="position" placeholder="Enter your position"></textarea>
 						<textarea id="orgFirst" maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div id="resultPosFirts" class="resultPosition"></div>
-						<div id="resultOrgFirst" class="resultOrganization"></div>
+						<div id="resultPosFirts" class="resultPosition"><?php echo $positionFirst?></div>
+						<div id="resultOrgFirst" class="resultOrganization"<?php echo $organizationFirst?>></div>
 					</div>
 				</div>
 				<div class="ellipse">
@@ -325,8 +389,8 @@
 					<div class="aboutWorkLeft">
 						<textarea id="posSecond" maxlength="24" class="position" placeholder="Enter your position"></textarea>
 						<textarea id="orgSecond" maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div id="resultPosSecond" class="resultPosition"></div>
-						<div id="resultOrgSecond" class="resultOrganization"></div>
+						<div id="resultPosSecond" class="resultPosition"><?php echo $positionSecond?></div>
+						<div id="resultOrgSecond" class="resultOrganization"><?php echo $organizationSecond?></div>
 					</div>
 				</div>
 			</div>
@@ -337,8 +401,8 @@
 					<div class="aboutWorkRight">
 						<textarea id="posThird" maxlength="24" class="position" placeholder="Enter your position"></textarea>
 						<textarea id="orgThird" maxlength="25" class="organization" placeholder="Enter organization name"></textarea>
-						<div id="resultPosThird"  class="resultPosition"></div>
-						<div id="resultOrgThird" class="resultOrganization"></div>
+						<div id="resultPosThird"  class="resultPosition"><?php echo $positionThird?></div>
+						<div id="resultOrgThird" class="resultOrganization"><?php echo $organizationThird?></div>
 					</div>
 				</div>
 				<div class="ellipse2">
@@ -352,8 +416,8 @@
 					<div class="aboutWorkLeft">
 						<textarea id="posFourth" maxlength="24" class="position" placeholder="Enter your position"></textarea>
 						<textarea id="orgFourth"  maxlength="25"class="organization" placeholder="Enter organization name"></textarea>
-						<div id="resultPosFourth" class="resultPosition"></div>
-						<div id="resultOrgFourth" class="resultOrganization"></div>
+						<div id="resultPosFourth" class="resultPosition"><?php echo $positionFourth?></div>
+						<div id="resultOrgFourth" class="resultOrganization"><?php echo $organizationFourth?></div>
 					</div>
 				</div>
 					<div>
@@ -382,8 +446,8 @@
 					<div class="aboutWorkRight">
 						<textarea id="specFirst" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
 						<textarea id="institFirst" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
-						<div id="resSpecFirst" class="resSpec"></div>
-						<div id="resInstitFirst" class="resInstit"></div>
+						<div id="resSpecFirst" class="resSpec"><?php echo $specialityFirst?></div>
+						<div id="resInstitFirst" class="resInstit"><?php echo $institutionFirst?></div>
 					</div>
 				</div>
 				<div class="ellipse">
@@ -397,8 +461,8 @@
 					<div class="aboutWorkLeft">
 						<textarea id="specSecond" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
 						<textarea id="institSecond" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
-						<div id="resSpecSecond" class="resSpec"></div>
-						<div id="resInstitSecond" class="resInstit"></div>
+						<div id="resSpecSecond" class="resSpec"><?php echo $specialitySecond?></div>
+						<div id="resInstitSecond" class="resInstit"><?php echo $institutionSecond?></div>
 					</div>
 				</div>
 			</div>
@@ -409,8 +473,8 @@
 					<div class="aboutWorkRight">
 						<textarea id="specThird" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
 						<textarea id="institThird" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
-						<div id="resSpecThird" class="resSpec"></div>
-						<div id="resInstitThird" class="resInstit"></div>
+						<div id="resSpecThird" class="resSpec"><?php echo $specialityThird?></div>
+						<div id="resInstitThird" class="resInstit"><?php echo $institutionThird?></div>
 					</div>
 				</div>
 				<div class="ellipse2">
@@ -424,8 +488,8 @@
 					<div class="aboutWorkLeft">
 						<textarea id="specFourth" maxlength="24"  class="placeEduc" placeholder="Enter your specialization"></textarea>
 						<textarea id="institFourth" maxlength="25" class="specEduc" placeholder="Enter your institution"></textarea>
-						<div id="resSpecFourth" class="resSpec"></div>
-						<div id="resInstitFourth" class="resInstit"></div>
+						<div id="resSpecFourth" class="resSpec"><?php echo $specialityFourth?></div>
+						<div id="resInstitFourth" class="resInstit"><?php echo $institutionFourth?></div>
 					</div>
 				</div>
 					<div>
@@ -445,10 +509,10 @@
 				<div class="red_line_about_me"></div>
 				<div class="skillsBlock">
 					<div class="ueBlock">
-							<div class="userExperience1"></div>
+							<div class="userExperience1"><?php echo $nameSkillFirst?></div>
 							<textarea class="nameExperience1" placeholder="Enter your skill"></textarea> 
 							<input name="flevel" id="number1" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate1(value)"> 
-							<output id="firstRange" for="number1" class="number" name="level">50</output>
+							<output id="firstRange" for="number1" class="number" name="level"><?php echo $valueSkillFirst?></output>
 							<script>
 							function outputUpdate1(vol) { 
 							  document.querySelector('#firstRange').value = vol;	 
@@ -457,10 +521,10 @@
 					</div>
 
 					<div class="ueBlock2">
-						<div class="userExperience2"></div>
+						<div class="userExperience2"><?php echo $nameSkillSecond?></div>
 						<textarea class="nameExperience2" placeholder="Enter your skill"></textarea> 
 						<input  id="number2" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate2(value)"> 
-							<output id="secondRange" for="number2" class="number" name="level">50</output>
+							<output id="secondRange" for="number2" class="number" name="level"><?php echo $valueSkillSecond?></output>
 							<script>
 							function outputUpdate2(vol) { 
 							  document.querySelector('#secondRange').value = vol;	 
@@ -468,10 +532,10 @@
 							</script>
 					</div>
 					<div class="ueBlock3">
-						<div class="userExperience3"></div>
+						<div class="userExperience3"><?php echo $nameSkillThird?></div>
 						<textarea class="nameExperience3" placeholder="Enter your skill"></textarea> 
 							<input  id="number3" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate3(value)"> 
-							<output id="thirdRange" for="number3" class="number" name="level">50</output>
+							<output id="thirdRange" for="number3" class="number" name="level"><?php echo $valueSkillThird?></output>
 							<script>
 							function outputUpdate3(vol) { 
 							  document.querySelector('#thirdRange').value = vol;	 
@@ -479,11 +543,11 @@
 							</script>
 					</div>
 					<div class="ueBlock4">
-						<div class="userExperience4"></div>
+						<div class="userExperience4"><?php echo $nameSkillFourth?></div>
 						<textarea class="nameExperience4" placeholder="Enter your skill"></textarea> 
 						<textarea class="nameExperience4"></textarea> 
 						<input  id="number4" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate4(value)"> 
-							<output id="fourthRange" for="number4" class="number" name="level">50</output>
+							<output id="fourthRange" for="number4" class="number" name="level"><?php echo $valueSkillFourth?></output>
 							<script>
 							function outputUpdate4(vol) { 
 							  document.querySelector('#fourthRange').value = vol;	 
@@ -491,10 +555,10 @@
 							</script>
 					</div>
 					<div class="ueBlock5">
-						<div class="userExperience5"></div>
+						<div class="userExperience5"><?php echo $nameSkillFifth?></div>
 						<textarea class="nameExperience5" placeholder="Enter your skill"></textarea> 
 						<input  id="number5" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate5(value)"> 
-							<output id="fifthRange" for="number5" class="number" name="level">50</output>
+							<output id="fifthRange" for="number5" class="number" name="level"><?php echo $valueSkillFifth?></output>
 							<script>
 							function outputUpdate5(vol) { 
 							  document.querySelector('#fifthRange').value = vol;	 
@@ -502,10 +566,10 @@
 							</script>
 					</div>
 					<div class="ueBlock6">
-						<div class="userExperience6"></div>
+						<div class="userExperience6"><?php echo $nameSkillSixth?></div>
 						<textarea class="nameExperience6" placeholder="Enter your skill"></textarea> 
 						<input  id="number6" class="range" type="range" min="0" max="100" step="1" value="50" onchange="outputUpdate6(value)"> 
-							<output id="sixthRange" for="number6" class="number" name="level">50</output>
+							<output id="sixthRange" for="number6" class="number" name="level"><?php echo $valueSkillSixth?></output>
 							<script>
 							function outputUpdate6(vol) { 
 							  document.querySelector('#sixthRange').value = vol;	 
@@ -515,48 +579,8 @@
 				</div>
 			</div>
 				
-				<div class="about">
-					<a name="contacts"></a>
-						<div class="leave_msg">
-							<div>Leave a Message</div>
-							<form id="msg_form" class="leave_msg_form" action="php/mail.php"  method="post" >
-								<div>
-									<input type="text" name="leave_msg_form_name" for="name" placeholder="Enter your name*">
-								</div>
-								<div>
-									<input type="email" name="leave_msg_form_email" for="email" placeholder="Enter your email*">
-								</div>
-								<div >
-									<input id="msg_leave"  type="text"  name="leave_msg_form_msg" placeholder="Message*"></input>
-								</div>
-								<input class="btn_leave_msg" type="submit"  value="Send">
-							</form>
-						</div>
-						<div class="line2"></div>
-						
-						<div class="location">
-							<ul>
-								<li><div class="location_img_1"></div>
-									<div class="location_text">
-										<div>Location</div>
-										<div>324, Golden Tower, Amborkhana, Sylhet</div>
-									</div>
-								</li>
-								<li><div class="location_img_2"></div>
-									<div class="location_text">
-										<div>Email</div>
-										<div>rusak.alexander2017@yandex.ru</div>
-									</div>
-								</li>
-								<li><div class="location_img_3"></div>
-									<div class="location_text">
-										<div>Call Me</div>
-										<div>+375(29) 838-86-02</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
+			
+				
 		</div>
 		
 

@@ -61,14 +61,15 @@
 			rules:{
 				reg_login:{
 					required: true,
-					minlength:3
+					minlength:4
 				},
 				reg_email:{
 					required:true,
 					email:true
 				},
 				reg_pwd1:{
-					required:true
+					required:true,
+					minlength:7
 				},
 				reg_pwd2:{
 					equalTo:"#reg_pwd1"
